@@ -1,8 +1,13 @@
 import React from 'react';
+import { Router } from 'react-router-dom';
+import history from '../routes/History';
+import Routes from '../routes/Routes';
 
 const App = () => {
   return(
-    <h1>App</h1>
+    <Router history={history}>
+      {Routes}   
+    </Router>
   )
 }
 
