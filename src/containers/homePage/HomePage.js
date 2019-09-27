@@ -1,9 +1,12 @@
 import React from 'react';
 import './HomePage.scss';
+import Button from 'react-bootstrap/Button';
 
 const HomePage = () => {
   return(
-    <h1>HOME</h1>
+    <div className="container">
+      <Button href="#">Home page</Button>
+    </div>
   )
 }
 
