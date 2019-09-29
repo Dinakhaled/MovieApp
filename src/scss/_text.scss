@@ -10,9 +10,19 @@ h1 {
   font-family: $bold;
 }
 
+.h1-light {
+  font-size: $large-light;
+  font-family: $light-font;
+}
+
 h2 {
   font-size: $meduim-bold;
   font-family: $bold;
+}
+
+.h2-light {
+  font-size: $meduim-light;
+  font-family: $light-font;
 }
 
 h3 {
