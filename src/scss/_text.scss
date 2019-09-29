@@ -4,3 +4,38 @@ html {
   @include media-breakpoint-down(xl) { font-size: 14px; }
   @include media-breakpoint-down(md) { font-size: 12px; }
 }
+
+h1 {
+  font-size: $large-bold;
+  font-family: $bold;
+}
+
+h2 {
+  font-size: $meduim-bold;
+  font-family: $bold;
+}
+
+h3 {
+  font-size: $regular-size;
+  font-family: $bold;
+}
+
+h4 {
+  font-size: $meduim-light;
+  font-family: $bold;
+}
+
+p {
+  font-size: $meduim-bold;
+  font-family: $regular;
+}
+
+a, button {
+  font-size: $button-text;
+  font-family: $light-font;
+}
+
+.link-font {
+  font-size: $meduim-light;
+  font-family: $regular;
+}
