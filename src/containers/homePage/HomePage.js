@@ -1,12 +1,10 @@
 import React from 'react';
 import './HomePage.scss';
-import Button from 'react-bootstrap/Button';
+import Card from '../../components/card/Card';
 
 const HomePage = () => {
   return(
-    <div className="container">
-      <Button href="#">Home page</Button>
-    </div>
+    <Card />
   )
 }
 

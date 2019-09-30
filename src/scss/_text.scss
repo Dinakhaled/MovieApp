@@ -5,6 +5,10 @@ html {
   @include media-breakpoint-down(md) { font-size: 12px; }
 }
 
+body {
+  color: $secondary;
+}
+
 h1 {
   font-size: $large-bold;
   font-family: $bold;
@@ -16,13 +20,13 @@ h1 {
 }
 
 h2 {
-  font-size: $meduim-bold;
+  font-size: $medium-bold;
   font-family: $bold;
 }
 
 .h2-light {
-  font-size: $meduim-light;
-  font-family: $light-font;
+  font-size: $button-text;
+  font-family: $regular;
 }
 
 h3 {
@@ -31,12 +35,12 @@ h3 {
 }
 
 h4 {
-  font-size: $meduim-light;
+  font-size: $medium-light;
   font-family: $bold;
 }
 
 p {
-  font-size: $meduim-bold;
+  font-size: $medium-bold;
   font-family: $regular;
 }
 
@@ -46,6 +50,6 @@ a, button {
 }
 
 .link-font {
-  font-size: $meduim-light;
+  font-size: $medium-light;
   font-family: $regular;
 }

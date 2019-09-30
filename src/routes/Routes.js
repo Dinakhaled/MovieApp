@@ -1,16 +1,18 @@
-import React from "react";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import React, { Suspense } from "react";
+import { Router, Switch, Redirect } from "react-router-dom";
 import history from "./History";
 // ========= Components =========
-import HomePage from "../containers/homePage/HomePage";
+const HomePage = React.lazy(() => import('../containers/homePage/HomePage'));
 
 const Routes = (
+  <Suspense fallback={<p>loading...</p>}>
   <Router history={history}>
     <Switch>
-      <Route path="/" exact component={HomePage} />
+      <HomePage path="/" />
       <Redirect from="*" to="/" />
     </Switch>
   </Router>
+  </Suspense>
 );
 
 export default Routes;

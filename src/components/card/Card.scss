@@ -1,0 +1,27 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.card {
+  border-radius: $border-radius;
+  transition: $transition;
+
+  @include e(img) {
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+  
+  &:hover {
+    background-color: $primary;
+    box-shadow: $box-shadow;
+    transform: $scal-sm;
+
+    .card__title {
+      color: $offwhite;
+    }
+
+    .card__img {
+      box-shadow: none;
+      border-radius: $border-radius $border-radius 0 0;
+    }
+  }
+}
