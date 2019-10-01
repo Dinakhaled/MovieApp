@@ -1,0 +1,8 @@
+@import '../../scss/variables';
+.rating {
+  color: $primary;
+
+  > span {
+    margin-right: 10px;
+  }
+}

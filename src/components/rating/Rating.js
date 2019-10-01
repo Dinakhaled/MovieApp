@@ -1,17 +1,18 @@
 import React from 'react';
-import StarRatings from 'react-star-ratings';
+import Stars from 'react-rating';
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as emptyStar} from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Rating.scss'
 
-const Rating = (props) => {
+const Rating = ({Rate}) => {
   return(
-    <StarRatings 
-      rating={props.rate}
-      starDimension='20px'
-      starSpacing='5px'
-      starEmptyColor={'#000'}
-      starRatedColor={'#37474f'}
-      starHoverColor={'#b0bec5'}
-      />
+    <Stars 
+      className='rating'
+      emptySymbol={<FontAwesomeIcon className='fontAwesome' icon={emptyStar} size="1x" />}
+      fullSymbol={<FontAwesomeIcon className='fontAwesome' icon={faStar} size="1x" />}
+      initialRating={Rate}
+      readonly />
   )
 }
 

@@ -23,5 +23,9 @@
       box-shadow: none;
       border-radius: $border-radius $border-radius 0 0;
     }
+
+    .rating {
+      color: $light-color;
+    }
   }
 }

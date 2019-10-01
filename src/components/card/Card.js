@@ -12,7 +12,7 @@ const Card = () => {
           <h2 className="h2-light card__title">Aladdin</h2>
         </BootStrapCard.Title>
         <Rating 
-          rate={3.5} />
+          Rate={3.5} />
       </BootStrapCard.Body>
     </BootStrapCard>
   )
