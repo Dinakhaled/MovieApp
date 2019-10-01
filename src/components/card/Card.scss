@@ -4,6 +4,7 @@
 .card {
   border-radius: $border-radius;
   transition: $transition;
+  width: 258px;
 
   @include e(img) {
     border-radius: $border-radius;

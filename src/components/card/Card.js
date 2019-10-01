@@ -5,14 +5,13 @@ import './Card.scss';
 
 const Card = () => {
   return (
-    <BootStrapCard className="border-0 card text-center" style={{ width: '258px', marginLeft:'100px'  }}>
+    <BootStrapCard className="border-0 card text-center">
       <BootStrapCard.Img className="card__img" variant="top" src='/assets/images/test.jpg' />
       <BootStrapCard.Body>
         <BootStrapCard.Title>
           <h2 className="h2-light card__title">Aladdin</h2>
         </BootStrapCard.Title>
-        <Rating 
-          Rate={3.5} />
+        <Rating Rate={3.5} />
       </BootStrapCard.Body>
     </BootStrapCard>
   )
