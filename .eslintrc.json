@@ -17,10 +17,7 @@
   },
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      { "parser": "flow", "singleAttributePerLine": true }
-    ]
+    "prettier/prettier": ["error", { "singleAttributePerLine": true }]
   },
   "parser": "babel-eslint"
 }
