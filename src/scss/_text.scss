@@ -13,6 +13,13 @@ body {
   color: $secondary;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  color: $primary;
+}
+
 h1 {
   font-size: $large-bold;
   font-family: $bold;

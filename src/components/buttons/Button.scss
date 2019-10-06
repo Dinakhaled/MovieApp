@@ -17,18 +17,17 @@
 
   &:active,
   &:visited {
-    background-color: $primary-dark;
+    background-color: $primary;
     color: $offwhite;
   }
 }
 
 .btn-primary {
-  background-color: $primary-dark;
   color: $offwhite;
 
   &:hover {
     background-color: transparent;
-    color: $primary-dark;
+    color: $primary;
     border-color: currentColor;
   }
 }
@@ -36,17 +35,11 @@
 .btn-lg {
   width: 100%;
   justify-content: start;
+  padding: 0.6rem 1.5rem;
 }
 
 .btn-outline-primary {
-  background-color: transparent;
-  color: $primary-dark;
   border-color: currentColor;
-
-  &:hover {
-    background-color: $primary-dark;
-    border-color: currentColor;
-  }
 }
 
 .btn-outline-secondary {
@@ -66,7 +59,7 @@
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
-  background-color: $primary-dark;
+  background-color: $primary;
   color: $offwhite;
   outline: 0;
   border-color: transparent;
