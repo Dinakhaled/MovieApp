@@ -2,6 +2,13 @@ import React from "react";
 import Button from "../buttons/Button";
 import "./List.scss";
 
+// ========== List structure ==========
+// const list = [
+//   { content: "one", icon: "", id: 1 },
+//   { content: "two", icon: "", id: 2 },
+//   { content: "three", icon: "", id: 3 }
+// ];
+
 class List extends React.Component {
   constructor(props) {
     super(props);
@@ -12,9 +19,7 @@ class List extends React.Component {
   }
 
   handleClick = id => {
-    this.setState({ active: id }, () => {
-      console.log(this.state);
-    });
+    this.setState({ active: id });
   };
 
   renderList = () => {
@@ -42,7 +47,7 @@ class List extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h2 className="mb-3">{this.props.title}</h2>
+        <h3 className="mb-3 title">{this.props.title}</h3>
         <ul className="list">{this.renderList()}</ul>
       </React.Fragment>
     );
