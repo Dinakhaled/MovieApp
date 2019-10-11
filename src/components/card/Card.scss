@@ -1,16 +1,18 @@
-@import '../../scss/variables';
-@import '../../scss/mixins';
+@import "../../scss/variables";
+@import "../../scss/mixins";
 
-.card {
+.card-deck .card {
   border-radius: $border-radius;
   transition: $transition;
-  width: 258px;
+  min-width: 257px;
+  max-width: 257px;
+  margin-bottom: 5.714rem;
 
   @include e(img) {
     border-radius: $border-radius;
     box-shadow: $box-shadow;
   }
-  
+
   &:hover {
     background-color: $primary;
     box-shadow: $box-shadow;
