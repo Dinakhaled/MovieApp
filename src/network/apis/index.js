@@ -7,4 +7,6 @@ const axiosInstance = axios.create({
   }
 });
 
-const getData = async () => await axiosInstance.get(`/songs`);
+const getGenre = async () => await axiosInstance.get(`/genre/movie/list`);
+
+export default { getGenre };

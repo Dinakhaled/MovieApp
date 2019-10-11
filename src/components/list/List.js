@@ -1,13 +1,7 @@
 import React from "react";
 import Button from "../buttons/Button";
+import { faDotCircle } from "@fortawesome/free-solid-svg-icons";
 import "./List.scss";
-
-// ========== List structure ==========
-// const list = [
-//   { content: "one", icon: "", id: 1 },
-//   { content: "two", icon: "", id: 2 },
-//   { content: "three", icon: "", id: 3 }
-// ];
 
 class List extends React.Component {
   constructor(props) {
@@ -23,7 +17,7 @@ class List extends React.Component {
   };
 
   renderList = () => {
-    return this.props.list.map(({ content, icon, id }) => {
+    return this.props.list.map(({ name, icon, id }) => {
       return (
         <li
           className={`list__item mb-2 ${
@@ -33,10 +27,10 @@ class List extends React.Component {
           onClick={() => this.handleClick(id)}
         >
           <Button
-            content={content}
+            content={name}
             theme="outline-secondary"
             size="lg"
-            icon={icon}
+            icon={icon || faDotCircle}
             iconMargin="r"
           />
         </li>
@@ -48,7 +42,7 @@ class List extends React.Component {
     return (
       <React.Fragment>
         <h3 className="mb-3 title">{this.props.title}</h3>
-        <ul className="list">{this.renderList()}</ul>
+        <ul className="list mb-lg-40">{this.renderList()}</ul>
       </React.Fragment>
     );
   }

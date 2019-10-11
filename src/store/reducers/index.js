@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import topMovies from "./TopMovies";
+import genres from "./Genres";
 
 export default combineReducers({
-  topMovies: topMovies
+  genres
 });
