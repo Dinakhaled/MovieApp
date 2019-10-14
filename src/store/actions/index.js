@@ -18,9 +18,10 @@ export const fetchMovies = movies => ({
   payload: movies
 });
 
-export const fetchMoviesReq = params => ({
+export const fetchMoviesReq = (getBy, params) => ({
   type: FETCH_MOVIES_REQUEST,
-  params
+  params,
+  getBy
 });
 
 export const currentTap = currentTap => ({

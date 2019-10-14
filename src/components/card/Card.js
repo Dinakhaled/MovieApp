@@ -7,19 +7,19 @@ const Card = ({ list }) => {
   return (
     <CardDeck>
       {list &&
-        list.map(({ name, rate, id }) => {
+        list.map(({ title, rate, id, poster_path, vote_average }) => {
           return (
             <BootStrapCard key={id} className="border-0 card text-center">
               <BootStrapCard.Img
                 className="card__img"
                 variant="top"
-                src="/assets/images/test.jpg"
+                src={`https://image.tmdb.org/t/p/w342${poster_path}`}
               />
               <BootStrapCard.Body>
                 <BootStrapCard.Title>
-                  <h2 className="h2-light card__title">{name}</h2>
+                  <h2 className="h2-light card__title">{title}</h2>
                 </BootStrapCard.Title>
-                <Rating Rate={rate} />
+                <Rating Rate={(vote_average / 10) * 5} />
               </BootStrapCard.Body>
             </BootStrapCard>
           );

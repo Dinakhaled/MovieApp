@@ -11,12 +11,10 @@ export function* fetchGenresSaga() {
   }
 }
 
-export function* fetchMoviesSaga({ params }) {
+export function* fetchMoviesSaga({ getBy, params }) {
   try {
-    if (params) {
-      const response = yield call(API.getMovies, params);
-      yield put(fetchMovies(response.data));
-    }
+    const response = yield call(API.getMovies, getBy, params);
+    yield put(fetchMovies(response.data));
   } catch (err) {
     console.log(err);
   }

@@ -11,6 +11,7 @@
   @include e(img) {
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    height: 27.5rem;
   }
 
   &:hover {

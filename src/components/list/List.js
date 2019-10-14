@@ -15,21 +15,21 @@ class List extends React.Component {
     };
   }
 
-  handleClick = ({ name, icon, id }) => {
+  handleClick = ({ name, icon, id, api }) => {
     this.setState({ active: id }, () => {
-      this.props.currentTap({ id, name, icon })
+      this.props.currentTap({ id, name, icon, api });
     });
   };
 
   renderList = () => {
-    return this.props.list.map(({ name, icon, id }) => {
+    return this.props.list.map(({ name, icon, id, api }) => {
       return (
         <li
           className={`list__item mb-2 ${
             id === this.state.active ? "active" : ""
-            }`}
+          }`}
           key={id}
-          onClick={() => this.handleClick({ name, icon, id })}
+          onClick={() => this.handleClick({ name, icon, id, api })}
         >
           <Button
             content={name}

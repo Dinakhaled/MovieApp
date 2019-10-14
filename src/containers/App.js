@@ -20,7 +20,7 @@ const App = () => {
         <Col lg={2} className="pl-0">
           <SideMenu />
         </Col>
-        <Col lg={10} className="px-5 pt-4">
+        <Col lg={10} className="px-5 py-4">
           <Router history={history}>{Routes}</Router>
         </Col>
       </Row>

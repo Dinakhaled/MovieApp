@@ -8,6 +8,13 @@ const axiosInstance = axios.create({
 });
 
 const getGenre = async () => await axiosInstance.get(`/genre/movie/list`);
-const getMovies = async params => await axiosInstance.get(`/movie/${params}`);
+const getMovies = async (type, params) => {
+  console.log(params);
+  return await axiosInstance.get(`/movie/${type}`, {
+    params: {
+      ...params
+    }
+  });
+};
 
 export default { getGenre, getMovies };
