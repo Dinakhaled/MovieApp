@@ -1,5 +1,5 @@
 @import "../../scss/variables";
-.btn {
+button.btn {
   box-shadow: $box-shadow-sm;
   transition: $transition-long;
   border: 1px solid transparent;
@@ -22,7 +22,7 @@
   }
 }
 
-.btn-primary {
+.btn.btn-primary {
   color: $offwhite;
 
   &:hover {
@@ -32,17 +32,17 @@
   }
 }
 
-.btn-lg {
+.btn.btn-lg {
   width: 100%;
   justify-content: start;
   padding: 0.6rem 1.5rem;
 }
 
-.btn-outline-primary {
+.btn.btn-outline-primary {
   border-color: currentColor;
 }
 
-.btn-outline-secondary {
+.btn.btn-outline-secondary {
   border-color: transparent;
   box-shadow: none;
   color: $disabledGray;
@@ -56,26 +56,26 @@
 }
 
 // ========= Reset bootstrap style on focus/active =========
-.btn-outline-primary:not(:disabled):not(.disabled):active,
-.btn-outline-primary:not(:disabled):not(.disabled).active,
+.btn.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn.btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
   background-color: $primary;
   color: $offwhite;
   outline: 0;
   border-color: transparent;
 }
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
-.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
-.show > .btn-outline-primary.dropdown-toggle:focus,
-.btn:focus {
+.btn.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.btn.show > .btn-outline-primary.dropdown-toggle:focus,
+.btn.btn:focus {
   box-shadow: none;
 }
-.btn-outline-secondary:not(:disabled):not(.disabled):active,
-.btn-outline-secondary:not(:disabled):not(.disabled).active,
-.show > .btn-outline-secondary.dropdown-toggle,
-.btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
-.btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
-.show > .btn-outline-secondary.dropdown-toggle:focus {
+.btn.btn-outline-secondary:not(:disabled):not(.disabled):active,
+.btn.btn-outline-secondary:not(:disabled):not(.disabled).active,
+.btn.show > .btn-outline-secondary.dropdown-toggle,
+.btn.btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
+.btn.btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
+.btn.show > .btn-outline-secondary.dropdown-toggle:focus {
   transform: none;
   border-color: $disabledGray;
   background-color: transparent;

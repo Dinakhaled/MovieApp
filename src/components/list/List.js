@@ -1,42 +1,41 @@
 import React from "react";
 import Button from "../buttons/Button";
-import "./List.scss";
+import { faDotCircle } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
+import { currentTap } from "../../store/actions";
 
-// ========== List structure ==========
-// const list = [
-//   { content: "one", icon: "", id: 1 },
-//   { content: "two", icon: "", id: 2 },
-//   { content: "three", icon: "", id: 3 }
-// ];
+import "./List.scss";
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       list: this.props.list,
-      active: null
+      active: 1
     };
   }
 
-  handleClick = id => {
-    this.setState({ active: id });
+  handleClick = ({ name, icon, id }) => {
+    this.setState({ active: id }, () => {
+      this.props.currentTap({ id, name, icon })
+    });
   };
 
   renderList = () => {
-    return this.props.list.map(({ content, icon, id }) => {
+    return this.props.list.map(({ name, icon, id }) => {
       return (
         <li
           className={`list__item mb-2 ${
             id === this.state.active ? "active" : ""
-          }`}
+            }`}
           key={id}
-          onClick={() => this.handleClick(id)}
+          onClick={() => this.handleClick({ name, icon, id })}
         >
           <Button
-            content={content}
+            content={name}
             theme="outline-secondary"
             size="lg"
-            icon={icon}
+            icon={icon || faDotCircle}
             iconMargin="r"
           />
         </li>
@@ -48,10 +47,13 @@ class List extends React.Component {
     return (
       <React.Fragment>
         <h3 className="mb-3 title">{this.props.title}</h3>
-        <ul className="list">{this.renderList()}</ul>
+        <ul className="list mb-lg-40">{this.renderList()}</ul>
       </React.Fragment>
     );
   }
 }
 
-export default List;
+export default connect(
+  null,
+  { currentTap }
+)(List);

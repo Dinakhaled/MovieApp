@@ -1,26 +1,46 @@
 import React, { Component } from "react";
 import Logo from "../../components/logo/Logo";
 import List from "../../components/list/List";
+import { faHeart, faPoll, faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
+import { fetchGenresReq } from "../../store/actions";
+
+import "./SideMenu.scss";
 
 const list = [
-  { content: "one", icon: "", id: 1 },
-  { content: "two", icon: "", id: 2 },
-  { content: "three", icon: "", id: 3 }
+  { name: "Popular", api: "popular", icon: faHeart, id: 1 },
+  { name: "Top Rated", api: "top_rated", icon: faPoll, id: 2 },
+  { name: "Upcoming", api: "upcoming", icon: faCalendar, id: 3 }
 ];
 
 class SideMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      discover: list
+    };
   }
+
+  componentDidMount() {
+    this.props.fetchGenresReq();
+  }
+
   render() {
     return (
-      <React.Fragment>
+      <div className="side-menu px-4">
         <Logo />
-        <List list={list} title="Discover" />
-      </React.Fragment>
+        <List list={this.state.discover} title={"Discover"} />
+        <List list={this.props.genres || []} title={"genres"} />
+      </div>
     );
   }
 }
 
-export default SideMenu;
+const mapStateToProps = state => {
+  return { ...state.genres };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchGenresReq }
+)(SideMenu);

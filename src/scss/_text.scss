@@ -57,9 +57,10 @@ p {
 
 a,
 button,
-input {
+input,
+button.btn {
   font-size: $button-text;
-  font-family: $regular;
+  font-family: $medium-font;
 }
 
 .link-font {

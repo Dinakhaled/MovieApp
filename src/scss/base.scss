@@ -1,5 +1,7 @@
 @import "./variables";
 @import "bootstrap/scss/bootstrap";
+@import "./helper";
 @import "./mixins";
 @import "./fonts";
 @import "./text";
+@import "../components/search/Search";
