@@ -12,7 +12,11 @@ class Pagination extends Component {
 
   handleClick = ({ page }, next) => {
     this.props.fetchMoviesReq(this.props.api, {
-      page: next ? page + 1 : page - 1
+      page: next ? page + 1 : page - 1,
+      with_genres:
+        this.props.id === 1 || this.props.id === 2 || this.props.id === 3
+          ? ""
+          : this.props.id
     });
   };
 
