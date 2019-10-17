@@ -10,24 +10,19 @@ class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: this.props.list,
-      active: 1
+      list: this.props.list
     };
   }
 
   handleClick = ({ name, icon, id, api }) => {
-    this.setState({ active: id }, () => {
-      this.props.currentTap({ id, name, icon, api });
-    });
+    this.props.currentTap({ id, name, icon, api });
   };
 
   renderList = () => {
     return this.props.list.map(({ name, icon, id, api }) => {
       return (
         <li
-          className={`list__item mb-2 ${
-            id === this.state.active ? "active" : ""
-          }`}
+          className={`list__item mb-2 ${id === this.props.id ? "active" : ""}`}
           key={id}
           onClick={() => this.handleClick({ name, icon, id, api })}
         >
@@ -53,7 +48,11 @@ class List extends React.Component {
   }
 }
 
+const mapStateToProps = ({ currentTap }) => {
+  return { ...currentTap };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { currentTap }
 )(List);

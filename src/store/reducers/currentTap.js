@@ -1,7 +1,12 @@
 import { CURRENT_TAP } from "../types";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const INITIAL_STATE = { id: 1, name: "Popular", api: "popular", icon: faHeart };
+const INITIAL_STATE = {
+  id: 1,
+  name: "Popular",
+  api: "popular",
+  icon: faHeart
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {

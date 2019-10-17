@@ -17,8 +17,14 @@ class HomePage extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.api !== this.props.api) {
-      this.props.fetchMoviesReq(this.props.api, { page: 1 });
+    if (prevProps.id !== this.props.id) {
+      this.props.fetchMoviesReq(this.props.api, {
+        page: 1,
+        with_genres:
+          this.props.id === 1 || this.props.id === 2 || this.props.id === 3
+            ? ""
+            : this.props.id
+      });
     }
   }
 
@@ -34,7 +40,6 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = ({ currentTap, movies }) => {
-  console.log(movies);
   return { ...currentTap, movies };
 };
 
