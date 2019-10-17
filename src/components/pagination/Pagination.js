@@ -34,7 +34,7 @@ class Pagination extends Component {
     return (
       <div onClick={() => this.handleClick(this.props.movies, false)}>
         <Button
-          content={`page ${this.props.movies.page}`}
+          content={`page ${this.props.movies.page - 1}`}
           theme="primary"
           icon={faArrowLeft}
           order="0"
@@ -46,9 +46,13 @@ class Pagination extends Component {
 
   render() {
     const isMorePage = this.props.movies.total_pages - this.props.movies.page;
+    const isBack = this.props.movies.page > 1 ? true : false;
+    const classMap = isBack
+      ? "d-flex align-items-center  justify-content-between"
+      : "d-flex align-items-center justify-content-end";
     return (
-      <div className="d-flex align-items-center justify-content-between">
-        {this.renderBackBtn()}
+      <div className={classMap}>
+        {isBack ? this.renderBackBtn() : ""}
         {isMorePage !== 0 ? this.renderNextBtn() : ""}
       </div>
     );
