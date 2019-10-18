@@ -1,31 +1,60 @@
-import React from "react";
+import React, { Component } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { connect } from "react-redux";
+import { currentTap, fetchMoviesReq, searchKeyword } from "../../store/actions";
 import "./Search.scss";
 
-const Search = () => {
-  return (
-    <Form className="form-search">
-      <InputGroup>
-        <InputGroup.Prepend>
-          <InputGroup.Text className="form-search__icon" id="basic-addon1">
-            <FontAwesomeIcon
-              className="fontAwesome"
-              icon={faSearch}
-              size="1x"
-            />
-          </InputGroup.Text>
-        </InputGroup.Prepend>
-        <Form.Control
-          className="form-search__input"
-          placeholder="Search for a movie..."
-          aria-label="search"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-    </Form>
-  );
-};
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: ""
+    };
+  }
 
-export default Search;
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.searchKeyword({ search: this.state.search });
+    this.props.fetchMoviesReq(this.props.api, {
+      page: 1,
+      query: this.state.search
+    });
+    this.props.currentTap({ id: "", icon: "", api: "" });
+  };
+
+  handleChange = e => {
+    this.setState({ search: e.target.value });
+  };
+
+  render() {
+    return (
+      <Form className="form-search" onSubmit={e => this.handleSubmit(e)}>
+        <InputGroup>
+          <InputGroup.Prepend>
+            <InputGroup.Text className="form-search__icon" id="basic-addon1">
+              <FontAwesomeIcon
+                className="fontAwesome"
+                icon={faSearch}
+                size="1x"
+              />
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <Form.Control
+            className="form-search__input"
+            placeholder="Search for a movie..."
+            aria-label="search"
+            aria-describedby="basic-addon1"
+            onChange={e => this.handleChange(e)}
+          />
+        </InputGroup>
+      </Form>
+    );
+  }
+}
+
+export default connect(
+  null,
+  { currentTap, fetchMoviesReq, searchKeyword }
+)(Search);

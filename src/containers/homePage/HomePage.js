@@ -3,7 +3,7 @@ import Title from "../../components/title/Title";
 import Card from "../../components/card/Card";
 import Pagination from "../../components/pagination/Pagination";
 import { connect } from "react-redux";
-import { currentTap, fetchMoviesReq } from "../../store/actions";
+import { currentTap, fetchMoviesReq, searchKeyword } from "../../store/actions";
 import "./HomePage.scss";
 
 class HomePage extends Component {
@@ -17,7 +17,7 @@ class HomePage extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.id !== this.props.id) {
+    if (prevProps.name !== this.props.name) {
       this.props.fetchMoviesReq(this.props.api, {
         page: 1,
         with_genres:
@@ -39,11 +39,11 @@ class HomePage extends Component {
   }
 }
 
-const mapStateToProps = ({ currentTap, movies }) => {
-  return { ...currentTap, movies };
+const mapStateToProps = ({ currentTap, movies, searchKeyword }) => {
+  return { ...currentTap, movies, ...searchKeyword };
 };
 
 export default connect(
   mapStateToProps,
-  { currentTap, fetchMoviesReq }
+  { currentTap, fetchMoviesReq, searchKeyword }
 )(HomePage);

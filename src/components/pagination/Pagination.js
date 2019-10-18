@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Button from "../buttons/Button";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { currentTap, fetchMoviesReq } from "../../store/actions";
+import { currentTap, fetchMoviesReq, searchKeyword } from "../../store/actions";
 
 class Pagination extends Component {
   constructor(props) {
@@ -16,7 +16,8 @@ class Pagination extends Component {
       with_genres:
         this.props.id === 1 || this.props.id === 2 || this.props.id === 3
           ? ""
-          : this.props.id
+          : this.props.id,
+      query: this.props.search ? this.props.search : ""
     });
   };
 
@@ -63,11 +64,11 @@ class Pagination extends Component {
   }
 }
 
-const mapStateToProps = ({ currentTap, movies }) => {
-  return { ...currentTap, movies };
+const mapStateToProps = ({ currentTap, movies, searchKeyword }) => {
+  return { ...currentTap, movies, ...searchKeyword };
 };
 
 export default connect(
   mapStateToProps,
-  { currentTap, fetchMoviesReq }
+  { currentTap, fetchMoviesReq, searchKeyword }
 )(Pagination);

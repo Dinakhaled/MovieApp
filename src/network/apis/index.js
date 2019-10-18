@@ -7,20 +7,24 @@ const axiosInstance = axios.create({
   }
 });
 
+const checkMoviesRequest = (params, type) => {
+  switch (true) {
+    case !params.with_genres && !params.query:
+      return `/movie/${type}`;
+    case params.query && !params.with_genres:
+      return `/search/movie/`;
+    default:
+      return `discover/movie`;
+  }
+};
+
 const getGenre = async () => await axiosInstance.get(`/genre/movie/list`);
 const getMovies = async (type, params) => {
-  return await axiosInstance.get(
-    `${
-      params.with_genres === "" || params.with_genres === undefined
-        ? `movie/${type}`
-        : `discover/movie`
-    }`,
-    {
-      params: {
-        ...params
-      }
+  return await axiosInstance.get(`${checkMoviesRequest(params, type)}`, {
+    params: {
+      ...params
     }
-  );
+  });
 };
 
 export default { getGenre, getMovies };
