@@ -22,6 +22,7 @@ class Search extends Component {
       query: this.state.search
     });
     this.props.currentTap({ id: "", icon: "", api: "" });
+    this.setState({ search: "" });
   };
 
   handleChange = e => {
@@ -46,6 +47,7 @@ class Search extends Component {
             placeholder="Search for a movie..."
             aria-label="search"
             aria-describedby="basic-addon1"
+            value={this.state.search}
             onChange={e => this.handleChange(e)}
           />
         </InputGroup>

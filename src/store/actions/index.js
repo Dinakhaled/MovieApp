@@ -4,7 +4,8 @@ import {
   CURRENT_TAP,
   FETCH_MOVIES,
   FETCH_MOVIES_REQUEST,
-  SEARCH_KEYWORD
+  SEARCH_KEYWORD,
+  SHOW_LOADER
 } from "../types";
 
 export const fetchGenres = genres => ({
@@ -33,4 +34,9 @@ export const currentTap = currentTap => ({
 export const searchKeyword = searchKeyword => ({
   type: SEARCH_KEYWORD,
   payload: searchKeyword
+});
+
+export const loader = state => ({
+  type: SHOW_LOADER,
+  payload: state
 });
