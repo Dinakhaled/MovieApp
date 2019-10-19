@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Logo from "../../components/logo/Logo";
 import List from "../../components/list/List";
+import Footer from "../../components/footer/Footer";
 import { faHeart, faPoll, faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { fetchGenresReq } from "../../store/actions";
@@ -31,6 +32,7 @@ class SideMenu extends Component {
         <Logo />
         <List list={this.state.discover} title={"Discover"} />
         <List list={this.props.genres || []} title={"genres"} />
+        <Footer />
       </div>
     );
   }

@@ -1,0 +1,17 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid $border-light;
+
+  @include e(list) {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 40px 40px 40px;
+    justify-items: center;
+  }
+}
