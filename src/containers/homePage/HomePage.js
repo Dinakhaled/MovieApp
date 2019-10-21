@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Title from "../../components/title/Title";
 import Card from "../../components/card/Card";
+import { Row } from "react-bootstrap";
 import Pagination from "../../components/pagination/Pagination";
 import { connect } from "react-redux";
 import { currentTap, fetchMoviesReq, searchKeyword } from "../../store/actions";
@@ -32,7 +33,9 @@ class HomePage extends Component {
     return (
       <React.Fragment>
         <Title main={this.props.name} sub="movies" />
-        <Card list={this.props.movies.results} />
+        <Row className="grid-5">
+          <Card list={this.props.movies.results} />
+        </Row>
         <Pagination />
       </React.Fragment>
     );

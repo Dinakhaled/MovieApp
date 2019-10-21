@@ -1,16 +1,9 @@
 @import "../../scss/variables";
 @import "../../scss/mixins";
 
-.card-deck .card-space {
-  margin-bottom: 5.714rem;
-  text-decoration: none;
-}
-
-.card-deck .card {
+.card {
   border-radius: $border-radius;
   transition: $transition;
-  min-width: 257px;
-  max-width: 257px;
 
   @include e(img) {
     border-radius: $border-radius;

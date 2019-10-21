@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card as BootStrapCard, CardDeck } from "react-bootstrap";
+import { Card as BootStrapCard } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "../rating/Rating";
 // import Spinner from "../spinner/Spinner";
@@ -19,7 +19,7 @@ class Card extends Component {
 
   render() {
     return (
-      <CardDeck>
+      <React.Fragment>
         {this.props.list &&
           this.props.list.map(({ title, id, poster_path, vote_average }) => {
             return (
@@ -46,7 +46,7 @@ class Card extends Component {
               </Link>
             );
           })}
-      </CardDeck>
+      </React.Fragment>
     );
   }
 }

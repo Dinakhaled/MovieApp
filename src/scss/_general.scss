@@ -1,0 +1,11 @@
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 3.571rem;
+  margin-bottom: 3.571rem;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
