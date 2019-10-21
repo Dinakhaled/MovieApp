@@ -3,6 +3,7 @@ import Title from "../../components/title/Title";
 import Card from "../../components/card/Card";
 import { Row } from "react-bootstrap";
 import Pagination from "../../components/pagination/Pagination";
+import Sort from "../../components/sort/Sort";
 import { connect } from "react-redux";
 import { currentTap, fetchMoviesReq, searchKeyword } from "../../store/actions";
 import "./HomePage.scss";
@@ -32,6 +33,7 @@ class HomePage extends Component {
   render() {
     return (
       <React.Fragment>
+        <Sort />
         <Title main={this.props.name} sub="movies" />
         <Row className="grid-5">
           <Card list={this.props.movies.results} />
