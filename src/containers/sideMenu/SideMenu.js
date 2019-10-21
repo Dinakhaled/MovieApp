@@ -4,8 +4,11 @@ import List from "../../components/list/List";
 import Footer from "../../components/footer/Footer";
 import { faHeart, faPoll, faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { fetchGenresReq } from "../../store/actions";
-
+import {
+  fetchGenresReq,
+  fetchMoviesReq,
+  currentTap
+} from "../../store/actions";
 import "./SideMenu.scss";
 
 const list = [
@@ -26,6 +29,18 @@ class SideMenu extends Component {
     this.props.fetchGenresReq();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.name !== this.props.name) {
+      this.props.fetchMoviesReq(this.props.api, {
+        page: 1,
+        with_genres:
+          this.props.id === 1 || this.props.id === 2 || this.props.id === 3
+            ? ""
+            : this.props.id
+      });
+    }
+  }
+
   render() {
     return (
       <div className="side-menu px-4">
@@ -39,10 +54,10 @@ class SideMenu extends Component {
 }
 
 const mapStateToProps = state => {
-  return { ...state.genres };
+  return { ...state.currentTap, ...state.genres };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchGenresReq }
+  { fetchGenresReq, currentTap, fetchMoviesReq }
 )(SideMenu);
