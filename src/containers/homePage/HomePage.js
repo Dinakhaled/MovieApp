@@ -21,9 +21,9 @@ class HomePage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Sort />
         <Title main={this.props.name} sub="movies" />
-        <Row className="grid-5">
+        {this.props.api ? null : <Sort />}
+        <Row className="grid-5 mx-auto">
           <Card list={this.props.movies.results} />
         </Row>
         <Pagination />

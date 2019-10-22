@@ -5,3 +5,4 @@ export const FETCH_MOVIES_REQUEST = "FETCH_MOVIES_REQUEST";
 export const CURRENT_TAP = "CURRENT_TAP";
 export const SEARCH_KEYWORD = "SEARCH_KEYWORD";
 export const SHOW_LOADER = "SHOW_LOADER";
+export const SORT_BY = "SORT_BY";

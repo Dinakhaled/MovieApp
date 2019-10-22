@@ -7,7 +7,8 @@ import { connect } from "react-redux";
 import {
   fetchGenresReq,
   fetchMoviesReq,
-  currentTap
+  currentTap,
+  sortBy
 } from "../../store/actions";
 import "./SideMenu.scss";
 
@@ -30,18 +31,25 @@ class SideMenu extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.name !== this.props.name) {
+    console.log(prevProps.sortBy, this.props);
+
+    if (
+      prevProps.name !== this.props.name ||
+      prevProps.sortKey !== this.props.sortKey
+    ) {
       this.props.fetchMoviesReq(this.props.api, {
         page: 1,
         with_genres:
           this.props.id === 1 || this.props.id === 2 || this.props.id === 3
             ? ""
-            : this.props.id
+            : this.props.id,
+        sort_by: this.props.sortKey ? this.props.sortKey : ""
       });
     }
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="side-menu px-4">
         <Logo />
@@ -54,10 +62,12 @@ class SideMenu extends Component {
 }
 
 const mapStateToProps = state => {
-  return { ...state.currentTap, ...state.genres };
+  console.log(state);
+
+  return { ...state.currentTap, ...state.genres, sortKey: state.sortBy };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchGenresReq, currentTap, fetchMoviesReq }
+  { fetchGenresReq, currentTap, fetchMoviesReq, sortBy }
 )(SideMenu);

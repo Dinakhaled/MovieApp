@@ -5,7 +5,8 @@ import {
   FETCH_MOVIES,
   FETCH_MOVIES_REQUEST,
   SEARCH_KEYWORD,
-  SHOW_LOADER
+  SHOW_LOADER,
+  SORT_BY
 } from "../types";
 
 export const fetchGenres = genres => ({
@@ -38,5 +39,10 @@ export const searchKeyword = searchKeyword => ({
 
 export const loader = state => ({
   type: SHOW_LOADER,
+  payload: state
+});
+
+export const sortBy = state => ({
+  type: SORT_BY,
   payload: state
 });
