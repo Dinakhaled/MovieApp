@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import Button from "../buttons/Button";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { currentTap, fetchMoviesReq, searchKeyword } from "../../store/actions";
+import {
+  currentTap,
+  fetchMoviesReq,
+  searchKeyword,
+  sortBy
+} from "../../store/actions";
 
 class Pagination extends Component {
   constructor(props) {
@@ -11,13 +16,16 @@ class Pagination extends Component {
   }
 
   handleClick = ({ page }, next) => {
-    this.props.fetchMoviesReq(this.props.api, {
+    this.props.fetchMoviesReq(this.props.tap.api, {
       page: next ? page + 1 : page - 1,
       with_genres:
-        this.props.id === 1 || this.props.id === 2 || this.props.id === 3
+        this.props.tap.id === 1 ||
+        this.props.tap.id === 2 ||
+        this.props.tap.id === 3
           ? ""
-          : this.props.id,
-      query: this.props.search ? this.props.search : ""
+          : this.props.tap.id,
+      query: this.props.search ? this.props.search : "",
+      sort_by: this.props.sortKey ? this.props.sortKey : ""
     });
   };
 
@@ -64,11 +72,11 @@ class Pagination extends Component {
   }
 }
 
-const mapStateToProps = ({ currentTap, movies, searchKeyword }) => {
-  return { ...currentTap, movies, ...searchKeyword };
+const mapStateToProps = ({ currentTap, movies, searchKeyword, sortBy }) => {
+  return { ...currentTap, movies, ...searchKeyword, sortKey: sortBy };
 };
 
 export default connect(
   mapStateToProps,
-  { currentTap, fetchMoviesReq, searchKeyword }
+  { currentTap, fetchMoviesReq, searchKeyword, sortBy }
 )(Pagination);

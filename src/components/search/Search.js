@@ -3,7 +3,12 @@ import { Form, InputGroup } from "react-bootstrap";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
-import { currentTap, fetchMoviesReq, searchKeyword } from "../../store/actions";
+import {
+  currentTap,
+  fetchMoviesReq,
+  searchKeyword,
+  sortBy
+} from "../../store/actions";
 import "./Search.scss";
 
 class Search extends Component {
@@ -21,8 +26,9 @@ class Search extends Component {
       page: 1,
       query: this.state.search
     });
-    this.props.currentTap({ id: "", icon: "", api: "" });
+    this.props.currentTap({ tap: { id: "", icon: "", api: "" } });
     this.setState({ search: "" });
+    this.props.sortBy({ sortBy: "" });
   };
 
   handleChange = e => {
@@ -58,5 +64,5 @@ class Search extends Component {
 
 export default connect(
   null,
-  { currentTap, fetchMoviesReq, searchKeyword }
+  { currentTap, fetchMoviesReq, searchKeyword, sortBy }
 )(Search);

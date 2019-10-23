@@ -15,14 +15,17 @@ class List extends React.Component {
   }
 
   handleClick = ({ name, icon, id, api }) => {
-    this.props.currentTap({ id, name, icon, api });
+    this.props.currentTap({ tap: { id, name, icon, api } });
+    this.props.click(api, id);
   };
 
   renderList = () => {
-    return this.props.list.map(({ name, icon, id, api }) => {
+    return this.props.list.map(({ name, icon, id, api, click }) => {
       return (
         <li
-          className={`list__item mb-2 ${id === this.props.id ? "active" : ""}`}
+          className={`list__item mb-2 ${
+            id === this.props.tap.id ? "active" : ""
+          }`}
           key={id}
           onClick={() => this.handleClick({ name, icon, id, api })}
         >

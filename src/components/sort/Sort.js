@@ -23,6 +23,7 @@ class Sort extends Component {
   handleChange = e => {
     this.setState({ selected: e.value }, () => {
       this.props.sortBy(this.state.selected);
+      this.props.click(this.state.selected);
     });
   };
 

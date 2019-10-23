@@ -8,7 +8,8 @@ import {
   fetchGenresReq,
   fetchMoviesReq,
   currentTap,
-  sortBy
+  sortBy,
+  searchKeyword
 } from "../../store/actions";
 import "./SideMenu.scss";
 
@@ -30,31 +31,50 @@ class SideMenu extends Component {
     this.props.fetchGenresReq();
   }
 
-  componentDidUpdate(prevProps) {
-    console.log(prevProps.sortBy, this.props);
+  handleClick = (api, id) => {
+    this.props.searchKeyword({ search: "" });
+    this.props.fetchMoviesReq(api, {
+      page: 1,
+      with_genres: api ? "" : id,
+      sort_by: this.props.sortKey ? this.props.sortKey : ""
+    });
+  };
 
-    if (
-      prevProps.name !== this.props.name ||
-      prevProps.sortKey !== this.props.sortKey
-    ) {
-      this.props.fetchMoviesReq(this.props.api, {
-        page: 1,
-        with_genres:
-          this.props.id === 1 || this.props.id === 2 || this.props.id === 3
-            ? ""
-            : this.props.id,
-        sort_by: this.props.sortKey ? this.props.sortKey : ""
-      });
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   console.log(this.props);
+  //   if (
+  //     (prevProps.tap.name !== this.props.tap.name ||
+  //       prevProps.sortKey !== this.props.sortKey) &&
+  //     !this.props.search
+  //   ) {
+  //     this.props.fetchMoviesReq(this.props.tap.api, {
+  //       page: 1,
+  //       with_genres:
+  //         this.props.tap.id === 1 ||
+  //         this.props.tap.id === 2 ||
+  //         this.props.tap.id === 3
+  //           ? ""
+  //           : this.props.tap.id,
+  //       sort_by: this.props.sortKey ? this.props.sortKey : ""
+  //     });
+  //     // this.props.searchKeyword({ search: "" });
+  //   }
+  // }
 
   render() {
-    console.log(this.props);
     return (
       <div className="side-menu px-4">
         <Logo />
-        <List list={this.state.discover} title={"Discover"} />
-        <List list={this.props.genres || []} title={"genres"} />
+        <List
+          click={this.handleClick}
+          list={this.state.discover}
+          title={"Discover"}
+        />
+        <List
+          click={this.handleClick}
+          list={this.props.genres || []}
+          title={"genres"}
+        />
         <Footer />
       </div>
     );
@@ -62,12 +82,15 @@ class SideMenu extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
-
-  return { ...state.currentTap, ...state.genres, sortKey: state.sortBy };
+  return {
+    ...state.currentTap,
+    ...state.genres,
+    sortKey: state.sortBy,
+    ...state.searchKeyword
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchGenresReq, currentTap, fetchMoviesReq, sortBy }
+  { fetchGenresReq, currentTap, fetchMoviesReq, sortBy, searchKeyword }
 )(SideMenu);
