@@ -40,27 +40,6 @@ class SideMenu extends Component {
     });
   };
 
-  // componentDidUpdate(prevProps) {
-  //   console.log(this.props);
-  //   if (
-  //     (prevProps.tap.name !== this.props.tap.name ||
-  //       prevProps.sortKey !== this.props.sortKey) &&
-  //     !this.props.search
-  //   ) {
-  //     this.props.fetchMoviesReq(this.props.tap.api, {
-  //       page: 1,
-  //       with_genres:
-  //         this.props.tap.id === 1 ||
-  //         this.props.tap.id === 2 ||
-  //         this.props.tap.id === 3
-  //           ? ""
-  //           : this.props.tap.id,
-  //       sort_by: this.props.sortKey ? this.props.sortKey : ""
-  //     });
-  //     // this.props.searchKeyword({ search: "" });
-  //   }
-  // }
-
   render() {
     return (
       <div className="side-menu px-4">

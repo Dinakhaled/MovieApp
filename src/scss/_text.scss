@@ -25,6 +25,11 @@ h1 {
   font-family: $bold;
 }
 
+.h1-2 {
+  font-size: $large-bold;
+  font-family: $light-font;
+}
+
 .h1-light {
   font-size: $large-light;
   font-family: $light-font;
@@ -72,3 +77,12 @@ button.btn {
   text-transform: uppercase;
 }
 
+.small {
+  font-size: $button-text;
+  font-family: $medium-font;
+}
+
+.small-bold {
+  font-size: $button-text;
+  font-family: $bold;
+}
