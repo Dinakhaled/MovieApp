@@ -4,6 +4,7 @@ import Card from "../../components/card/Card";
 import { Row } from "react-bootstrap";
 import Pagination from "../../components/pagination/Pagination";
 import Sort from "../../components/sort/Sort";
+import CircleSlider from "../../components/slider/Slider";
 import { connect } from "react-redux";
 import {
   currentTap,
@@ -34,6 +35,7 @@ class HomePage extends Component {
   render() {
     return (
       <React.Fragment>
+        <CircleSlider />
         <Title
           main={this.props.tap.name ? this.props.tap.name : this.props.search}
           sub={this.props.tap.name ? "movies" : "search results"}

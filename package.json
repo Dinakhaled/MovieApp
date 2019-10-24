@@ -22,8 +22,10 @@
     "react-router-dom": "5.1.0",
     "react-scripts": "3.1.2",
     "react-select": "^3.0.8",
+    "react-slick": "^0.25.2",
     "redux": "4.0.4",
-    "redux-saga": "1.1.1"
+    "redux-saga": "1.1.1",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
