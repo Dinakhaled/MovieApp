@@ -19,7 +19,7 @@ const renderList = props => {
 const ListInline = props => {
   return (
     <div>
-      <h3 className="title mb-3">The Genres</h3>
+      <h3 className="title mb-2">The Genres</h3>
       <ul className="p-0 list-unstyled d-flex inline-list">
         {renderList(props)}
       </ul>
