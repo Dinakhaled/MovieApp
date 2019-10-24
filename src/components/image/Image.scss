@@ -1,0 +1,10 @@
+@import "../../scss/variables";
+
+.image {
+  width: 100%;
+  border-radius: 0.8rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: $box-shadow-sm;
+}

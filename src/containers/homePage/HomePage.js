@@ -24,8 +24,6 @@ class HomePage extends Component {
   }
 
   handleClick = sort => {
-    console.log("clicked");
-
     this.props.fetchMoviesReq(this.props.tap.api, {
       page: 1,
       with_genres: this.props.tap.api ? "" : this.props.tap.id,
