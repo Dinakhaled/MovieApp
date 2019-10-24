@@ -20,7 +20,7 @@ class List extends React.Component {
   };
 
   renderList = () => {
-    return this.props.list.map(({ name, icon, id, api, click }) => {
+    return this.props.list.map(({ name, icon, id, api }) => {
       return (
         <li
           className={`list__item mb-2 ${
