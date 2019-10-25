@@ -1,48 +1,49 @@
-import {
-  FETCH_GENRES,
-  FETCH_GENRES_REQUEST,
-  CURRENT_TAP,
-  FETCH_MOVIES,
-  FETCH_MOVIES_REQUEST,
-  SEARCH_KEYWORD,
-  SHOW_LOADER,
-  SORT_BY
-} from "../types";
+import * as types from "../types";
 
 export const fetchGenres = genres => ({
-  type: FETCH_GENRES,
+  type: types.FETCH_GENRES,
   payload: genres
 });
 
-export const fetchGenresReq = () => ({ type: FETCH_GENRES_REQUEST });
+export const fetchGenresReq = () => ({ type: types.FETCH_GENRES_REQUEST });
 
 export const fetchMovies = movies => ({
-  type: FETCH_MOVIES,
+  type: types.FETCH_MOVIES,
   payload: movies
 });
 
 export const fetchMoviesReq = (getBy, params) => ({
-  type: FETCH_MOVIES_REQUEST,
+  type: types.FETCH_MOVIES_REQUEST,
   params,
   getBy
 });
 
 export const currentTap = currentTap => ({
-  type: CURRENT_TAP,
+  type: types.CURRENT_TAP,
   payload: currentTap
 });
 
 export const searchKeyword = searchKeyword => ({
-  type: SEARCH_KEYWORD,
+  type: types.SEARCH_KEYWORD,
   payload: searchKeyword
 });
 
 export const loader = state => ({
-  type: SHOW_LOADER,
+  type: types.SHOW_LOADER,
   payload: state
 });
 
 export const sortBy = state => ({
-  type: SORT_BY,
+  type: types.SORT_BY,
   payload: state
+});
+
+export const fetchMovie = movie => ({
+  type: types.SINGLE_MOVIE,
+  payload: movie
+});
+
+export const fetchMovieRequest = id => ({
+  type: types.SINGLE_MOVIE_REQUEST,
+  id
 });

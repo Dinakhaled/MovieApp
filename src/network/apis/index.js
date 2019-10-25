@@ -38,4 +38,8 @@ const getMovies = async (type, params) => {
   });
 };
 
-export default { getGenre, getMovies };
+const getMovie = async id => {
+  return await axiosInstance.get(`/movie/${id}`);
+};
+
+export default { getGenre, getMovies, getMovie };

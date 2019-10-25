@@ -6,3 +6,5 @@ export const CURRENT_TAP = "CURRENT_TAP";
 export const SEARCH_KEYWORD = "SEARCH_KEYWORD";
 export const SHOW_LOADER = "SHOW_LOADER";
 export const SORT_BY = "SORT_BY";
+export const SINGLE_MOVIE = "SINGLE_MOVIE";
+export const SINGLE_MOVIE_REQUEST = "SINGLE_MOVIE_REQUEST";
