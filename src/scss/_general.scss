@@ -1,8 +1,18 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+@import "~bootstrap/scss/mixins";
+
 .grid-5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 3.571rem;
   margin-bottom: 3.571rem;
+
+  @include media-breakpoint-down(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 a,

@@ -1,0 +1,25 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.slider {
+  @include e(slide) {
+    height: 6rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include e(img) {
+    border-radius: 50%;
+    width: 80%;
+    height: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: $primary;
+}

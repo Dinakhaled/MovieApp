@@ -1,16 +1,31 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import "./Slider.scss";
 
 class CircleSlider extends Component {
   state = {
     display: true,
-    width: 600
+    width: 800
   };
+
+  renderSlides = () => {
+    return this.props.list.map(({ src, id }) => {
+      const background = {
+        backgroundImage: `url(${src ? src : "/assets/images/profile-fail.png"})`
+      };
+      return (
+        <div className="slider__slide" key={id}>
+          <div className="slider__img" style={background}></div>
+        </div>
+      );
+    });
+  };
+
   render() {
     const settings = {
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 9,
       slidesToScroll: 1
     };
     return (
@@ -21,25 +36,8 @@ class CircleSlider extends Component {
             display: this.state.display ? "block" : "none"
           }}
         >
-          <Slider {...settings}>
-            <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
-            </div>
-            <div>
-              <h3>5</h3>
-            </div>
-            <div>
-              <h3>6</h3>
-            </div>
+          <Slider className="slider" {...settings}>
+            {this.renderSlides()}
           </Slider>
         </div>
       </div>
