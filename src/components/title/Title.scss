@@ -1,0 +1,8 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+.title {
+  @include e(sub) {
+    color: $primary-light;
+  }
+}

@@ -39,7 +39,11 @@ const getMovies = async (type, params) => {
 };
 
 const getMovie = async id => {
-  return await axiosInstance.get(`/movie/${id}`);
+  return await axiosInstance.get(`/movie/${id}`, {
+    params: {
+      append_to_response: "videos"
+    }
+  });
 };
 
 export default { getGenre, getMovies, getMovie };

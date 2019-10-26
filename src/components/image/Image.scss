@@ -1,7 +1,14 @@
 @import "../../scss/variables";
 
+.image-wrapper {
+  height: 100%;
+  padding: 4rem;
+}
+
 .image {
   width: 100%;
+  min-height: 600px;
+  max-height: 100%;
   border-radius: 0.8rem;
   background-repeat: no-repeat;
   background-size: cover;

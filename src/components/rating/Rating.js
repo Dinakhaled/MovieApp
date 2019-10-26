@@ -7,7 +7,7 @@ import "./Rating.scss";
 
 const Rating = ({ Rate, text }) => {
   return (
-    <div className={text ? "d-flex" : ""}>
+    <div className={text ? "d-flex align-items-center" : ""}>
       <Stars
         className="rating"
         emptySymbol={
@@ -19,7 +19,7 @@ const Rating = ({ Rate, text }) => {
         initialRating={Rate}
         readonly
       />
-      {text ? <p className="m-0 small-bold">{text}</p> : null}
+      {text ? <p className="m-0 small-bold text-primary">{text}</p> : null}
     </div>
   );
 };

@@ -18,7 +18,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Container fluid className="">
+      <Container fluid>
         <Row>
           <Col lg={{ span: 2, offset: 10 }} className="pt-4">
             <Search />

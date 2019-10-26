@@ -3,19 +3,23 @@ import "./Title.scss";
 
 const Title = ({ main, sub, size }) => {
   return (
-    <div className="mb-lg-40">
+    <React.Fragment>
       {size === "lg" ? (
-        <div>
-          <h1 className="h1-2 title mb-1">{main}</h1>
-          <h2 className="title">{sub}</h2>
+        <div className="mb-lg-20">
+          <div>
+            <h1 className="h1-2 title">{main}</h1>
+            <h2 className="title title__sub">{sub}</h2>
+          </div>
         </div>
       ) : (
-        <div>
-          <h1 className="h1-light title mb-1">{main}</h1>
-          <h3 className="title">{sub}</h3>
+        <div className="mb-lg-40">
+          <div>
+            <h1 className="h1-light title mb-1">{main}</h1>
+            <h3 className="title">{sub}</h3>
+          </div>
         </div>
       )}
-    </div>
+    </React.Fragment>
   );
 };
 

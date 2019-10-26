@@ -4,13 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ListInline.scss";
 
 const renderList = props => {
-  console.log(props);
-
-  return props.list.map(({ text, id }) => {
+  return props.list.map(({ name, id }) => {
     return (
       <li className="mr-4 title small-bold inline-list__item" key={id}>
         <FontAwesomeIcon className="fontAwesome mr-2" icon={faDotCircle} />
-        {text}
+        {name}
       </li>
     );
   });
@@ -18,8 +16,8 @@ const renderList = props => {
 
 const ListInline = props => {
   return (
-    <div>
-      <h3 className="title mb-2">The Genres</h3>
+    <div className={props.className}>
+      <h2 className="title mb-3">{props.title}</h2>
       <ul className="p-0 list-unstyled d-flex inline-list">
         {renderList(props)}
       </ul>

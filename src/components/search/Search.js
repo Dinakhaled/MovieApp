@@ -37,7 +37,7 @@ class Search extends Component {
 
   render() {
     return (
-      <Form className="form-search" onSubmit={e => this.handleSubmit(e)}>
+      <Form className="form-search mb-4" onSubmit={e => this.handleSubmit(e)}>
         <InputGroup>
           <InputGroup.Prepend>
             <InputGroup.Text className="form-search__icon" id="basic-addon1">
