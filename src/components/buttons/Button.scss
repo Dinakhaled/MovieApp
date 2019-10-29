@@ -40,6 +40,11 @@ button.btn {
 
 .btn.btn-outline-primary {
   border-color: currentColor;
+  box-shadow: none;
+
+  &:hover {
+    box-shadow: $box-shadow-sm;
+  }
 }
 
 .btn.btn-outline-secondary {

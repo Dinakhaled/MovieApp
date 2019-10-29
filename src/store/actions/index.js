@@ -47,3 +47,13 @@ export const fetchMovieRequest = id => ({
   type: types.SINGLE_MOVIE_REQUEST,
   id
 });
+
+export const fetchCredits = credits => ({
+  type: types.FETCH_CREDITS,
+  payload: credits
+});
+
+export const fetchCreditsRequest = id => ({
+  type: types.FETCH_CREDITS_REQUEST,
+  id
+});

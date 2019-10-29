@@ -3,12 +3,12 @@ import * as Btn from "react-bootstrap/Button";
 import "./Button.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Button = ({ content, size, theme, icon, iconMargin, order }) => {
+const Button = ({ content, size, theme, icon, iconMargin, order, className, handleClick }) => {
   return (
-    <Btn variant={theme} size={size}>
+    <Btn variant={theme} size={size} className={className} onClick={ () => handleClick()}>
       {icon && (
         <FontAwesomeIcon
-          className={`fontAwesome m${iconMargin}-2 order-${order}`}
+          className={`fontAwesome m${iconMargin}-3 order-${order}`}
           icon={icon}
         />
       )}

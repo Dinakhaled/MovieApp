@@ -3,7 +3,7 @@
 
 .slider {
   @include e(slide) {
-    height: 6rem;
+    height: 5.5rem;
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -11,8 +11,8 @@
 
   @include e(img) {
     border-radius: 50%;
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

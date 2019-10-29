@@ -46,4 +46,6 @@ const getMovie = async id => {
   });
 };
 
-export default { getGenre, getMovies, getMovie };
+const gecredits = async id => await axiosInstance.get(`/movie/${id}/credits`);
+
+export default { getGenre, getMovies, getMovie, gecredits };

@@ -5,16 +5,16 @@ import "./Slider.scss";
 class CircleSlider extends Component {
   state = {
     display: true,
-    width: 800
+    // width: 800
   };
 
   renderSlides = () => {
-    return this.props.list.map(({ src, id }) => {
+    return this.props.list.map(({ profile_path, credit_id }) => {
       const background = {
-        backgroundImage: `url(${src ? src : "/assets/images/profile-fail.png"})`
+        backgroundImage: `url(${profile_path ? `https://image.tmdb.org/t/p/w342${profile_path}` : "/assets/images/profile-fail.png"})`
       };
       return (
-        <div className="slider__slide" key={id}>
+        <div className="slider__slide" key={credit_id}>
           <div className="slider__img" style={background}></div>
         </div>
       );
@@ -23,13 +23,14 @@ class CircleSlider extends Component {
 
   render() {
     const settings = {
-      infinite: true,
+      // infinite: true,
       speed: 500,
       slidesToShow: 9,
       slidesToScroll: 1
     };
     return (
-      <div>
+      <div className={this.props.className}>
+        <h2 className="title mb-3">{this.props.title}</h2>
         <div
           style={{
             width: this.state.width + "px",

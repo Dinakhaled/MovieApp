@@ -1,6 +1,6 @@
 import { put, call } from "redux-saga/effects";
 import API from "../../network/apis";
-import { fetchGenres, fetchMovies, fetchMovie } from "../actions";
+import { fetchGenres, fetchMovies, fetchMovie, fetchCredits } from "../actions";
 
 export function* fetchGenresSaga() {
   try {
@@ -21,11 +21,18 @@ export function* fetchMoviesSaga({ getBy, params }) {
 }
 
 export function* fetchMovieSaga({ id }) {
-  console.log(id);
-
   try {
     const response = yield call(API.getMovie, id);
     yield put(fetchMovie(response.data));
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export function* fetchCreditsSaga({ id }) {
+  try {
+    const response = yield call(API.gecredits, id);
+    yield put(fetchCredits(response.data));
   } catch (err) {
     console.log(err);
   }
