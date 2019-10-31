@@ -21,7 +21,9 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchMoviesReq(this.props.tap.api, { page: this.props.page || 1 });
+    this.props.fetchMoviesReq(this.props.tap.api, {
+      page: this.props.fetchRecommendedMoviesRequest ? 1 : this.props.page || 1
+    });
   }
 
   handleClick = sort => {
@@ -51,8 +53,20 @@ class HomePage extends Component {
   }
 }
 
-const mapStateToProps = ({ currentTap, movies, searchKeyword, sortBy, currentPage }) => {
-  return { ...currentTap, movies, ...searchKeyword, sortKey: sortBy, page: currentPage };
+const mapStateToProps = ({
+  currentTap,
+  movies,
+  searchKeyword,
+  sortBy,
+  currentPage
+}) => {
+  return {
+    ...currentTap,
+    movies,
+    ...searchKeyword,
+    sortKey: sortBy,
+    page: currentPage
+  };
 };
 
 export default connect(

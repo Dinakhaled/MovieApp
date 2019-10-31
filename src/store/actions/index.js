@@ -62,3 +62,13 @@ export const currentPage = currentPage => ({
   type: types.CURRENT_PAGE,
   payload: currentPage
 });
+
+export const fetchRecommendedMovies = movie => ({
+  type: types.RECOMMENDED_MOVIES,
+  payload: movie
+});
+
+export const fetchRecommendedMoviesRequest = id => ({
+  type: types.RECOMMENDED_MOVIES_REQUEST,
+  id
+});

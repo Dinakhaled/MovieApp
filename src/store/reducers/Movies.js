@@ -8,6 +8,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, ...action.payload };
     case types.SINGLE_MOVIE:
       return { ...state, ...action.payload };
+    case types.RECOMMENDED_MOVIES:
+      return { ...state, ...action.payload };
     default:
       return state;
   }

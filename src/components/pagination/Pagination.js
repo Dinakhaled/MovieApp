@@ -74,8 +74,20 @@ class Pagination extends Component {
   }
 }
 
-const mapStateToProps = ({ currentTap, movies, searchKeyword, sortBy, currentPage }) => {
-  return { ...currentTap, movies, ...searchKeyword, sortKey: sortBy, page: currentPage };
+const mapStateToProps = ({
+  currentTap,
+  movies,
+  searchKeyword,
+  sortBy,
+  currentPage
+}) => {
+  return {
+    ...currentTap,
+    movies,
+    ...searchKeyword,
+    sortKey: sortBy,
+    page: currentPage
+  };
 };
 
 export default connect(
