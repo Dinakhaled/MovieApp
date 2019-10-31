@@ -12,11 +12,14 @@ import Slider from "../../components/slider/Slider";
 import { faArrowLeft, faPlay, faLink } from "@fortawesome/free-solid-svg-icons";
 import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import history from '../../routes/History';
+import ModalVideo from 'react-modal-video'; 
 
 class DetailsPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isVideoModalOpen: false
+    };
   }
 
   componentDidMount() {
@@ -26,6 +29,10 @@ class DetailsPage extends Component {
 
   handleClickBack = () => {
     history.push('/')
+  }
+
+  openModal = () => {
+    this.setState({isVideoModalOpen: true});
   }
 
   render() {
@@ -40,7 +47,8 @@ class DetailsPage extends Component {
       genres,
       overview,
       imdb_id,
-      homepage
+      homepage,
+      videos
     } = this.props.movie;
     return (
       <Container fluid>
@@ -78,12 +86,14 @@ class DetailsPage extends Component {
                 <a href={`https://www.imdb.com/title/${imdb_id}`} rel="noopener noreferrer" target="_blank">
                   <Button className="mr-4" icon={faImdb} iconMargin='l' order="1" theme="outline-primary" content="IMDB" />
                 </a>
-                <Button icon={faPlay} iconMargin='l' order="1" theme="outline-primary" content="Trailer" />
+                {videos && videos.results.length > 0 &&  <Button icon={faPlay} iconMargin='l' order="1" theme="outline-primary" content="Trailer" handleClick={this.openModal} />}
               </div>
               <Button content="Back" iconMargin='r' icon={faArrowLeft} handleClick={this.handleClickBack} />
             </div>
           </Col>
         </Row>
+        {videos && videos.results.length > 0 && <ModalVideo channel='youtube' isOpen={this.state.isVideoModalOpen} videoId={videos && videos.results[0].key} onClose={() => this.setState({isVideoModalOpen: false})} />}
+        
       </Container>
     );
   }
