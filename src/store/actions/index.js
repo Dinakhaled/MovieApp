@@ -57,3 +57,8 @@ export const fetchCreditsRequest = id => ({
   type: types.FETCH_CREDITS_REQUEST,
   id
 });
+
+export const currentPage = currentPage => ({
+  type: types.CURRENT_PAGE,
+  payload: currentPage
+});

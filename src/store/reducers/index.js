@@ -6,6 +6,7 @@ import searchKeyword from "./searchKeyword";
 import loader from "./Loading";
 import sortBy from "./sortBy";
 import credits from "./credits";
+import currentPage from "./currentPage";
 
 export default combineReducers({
   genres,
@@ -14,5 +15,6 @@ export default combineReducers({
   searchKeyword,
   loader,
   sortBy,
-  credits
+  credits,
+  currentPage
 });

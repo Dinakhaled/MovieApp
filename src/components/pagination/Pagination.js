@@ -6,7 +6,8 @@ import {
   currentTap,
   fetchMoviesReq,
   searchKeyword,
-  sortBy
+  sortBy,
+  currentPage
 } from "../../store/actions";
 
 class Pagination extends Component {
@@ -30,6 +31,7 @@ class Pagination extends Component {
   };
 
   renderNextBtn = () => {
+    this.props.currentPage(this.props.movies.page || 1);
     return (
       <div onClick={() => this.handleClick(this.props.movies, true)}>
         <Button
@@ -72,11 +74,11 @@ class Pagination extends Component {
   }
 }
 
-const mapStateToProps = ({ currentTap, movies, searchKeyword, sortBy }) => {
-  return { ...currentTap, movies, ...searchKeyword, sortKey: sortBy };
+const mapStateToProps = ({ currentTap, movies, searchKeyword, sortBy, currentPage }) => {
+  return { ...currentTap, movies, ...searchKeyword, sortKey: sortBy, page: currentPage };
 };
 
 export default connect(
   mapStateToProps,
-  { currentTap, fetchMoviesReq, searchKeyword, sortBy }
+  { currentTap, fetchMoviesReq, searchKeyword, sortBy, currentPage }
 )(Pagination);

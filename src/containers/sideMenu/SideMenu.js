@@ -11,6 +11,7 @@ import {
   sortBy,
   searchKeyword
 } from "../../store/actions";
+import history from '../../routes/History';
 import "./SideMenu.scss";
 
 const list = [
@@ -38,6 +39,7 @@ class SideMenu extends Component {
       with_genres: api ? "" : id,
       sort_by: this.props.sortKey ? this.props.sortKey : ""
     });
+    history.push('/');
   };
 
   render() {

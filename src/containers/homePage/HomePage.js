@@ -9,7 +9,8 @@ import {
   currentTap,
   fetchMoviesReq,
   searchKeyword,
-  sortBy
+  sortBy,
+  currentPage
 } from "../../store/actions";
 import "./HomePage.scss";
 
@@ -20,12 +21,12 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchMoviesReq(this.props.tap.api, { page: 1 });
+    this.props.fetchMoviesReq(this.props.tap.api, { page: this.props.page || 1 });
   }
 
   handleClick = sort => {
     this.props.fetchMoviesReq(this.props.tap.api, {
-      page: 1,
+      page: this.props.page,
       with_genres: this.props.tap.api ? "" : this.props.tap.id,
       sort_by: sort ? sort : ""
     });
@@ -50,11 +51,11 @@ class HomePage extends Component {
   }
 }
 
-const mapStateToProps = ({ currentTap, movies, searchKeyword, sortBy }) => {
-  return { ...currentTap, movies, ...searchKeyword, sortKey: sortBy };
+const mapStateToProps = ({ currentTap, movies, searchKeyword, sortBy, currentPage }) => {
+  return { ...currentTap, movies, ...searchKeyword, sortKey: sortBy, page: currentPage };
 };
 
 export default connect(
   mapStateToProps,
-  { currentTap, fetchMoviesReq, searchKeyword, sortBy }
+  { currentTap, fetchMoviesReq, searchKeyword, sortBy, currentPage }
 )(HomePage);

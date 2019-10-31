@@ -23,7 +23,7 @@ class CircleSlider extends Component {
 
   render() {
     const settings = {
-      // infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 9,
       slidesToScroll: 1
