@@ -26,6 +26,10 @@ class HomePage extends Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps, prevState);
+  }
+
   handleClick = sort => {
     this.props.fetchMoviesReq(this.props.tap.api, {
       page: this.props.page,

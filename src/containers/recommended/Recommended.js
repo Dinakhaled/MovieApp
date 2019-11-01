@@ -20,8 +20,6 @@ class Recommended extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     const { results, className } = this.props;
     return (
       <div className={className}>

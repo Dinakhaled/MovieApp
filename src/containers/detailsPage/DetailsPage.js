@@ -32,6 +32,15 @@ class DetailsPage extends Component {
     this.props.fetchCreditsRequest(this.props.computedMatch.params.id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.computedMatch.params.id !== this.props.computedMatch.params.id
+    ) {
+      this.props.fetchMovieRequest(this.props.computedMatch.params.id);
+      this.props.fetchCreditsRequest(this.props.computedMatch.params.id);
+    }
+  }
+
   handleClickBack = () => {
     history.push("/");
   };
