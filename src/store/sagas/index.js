@@ -5,7 +5,8 @@ import {
   fetchMoviesSaga,
   fetchMovieSaga,
   fetchCreditsSaga,
-  fetchRecommendedMovieSaga
+  fetchRecommendedMovieSaga,
+  fetchPersonSaga
 } from "./movies";
 
 export function* watchAll() {
@@ -14,4 +15,5 @@ export function* watchAll() {
   yield takeEvery(types.SINGLE_MOVIE_REQUEST, fetchMovieSaga);
   yield takeEvery(types.FETCH_CREDITS_REQUEST, fetchCreditsSaga);
   yield takeEvery(types.RECOMMENDED_MOVIES_REQUEST, fetchRecommendedMovieSaga);
+  yield takeEvery(types.FETCH_PERSON_REQUEST, fetchPersonSaga);
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import "./Slider.scss";
 
 class CircleSlider extends Component {
@@ -9,7 +10,7 @@ class CircleSlider extends Component {
   };
 
   renderSlides = () => {
-    return this.props.list.map(({ profile_path, credit_id }) => {
+    return this.props.list.map(({ profile_path, credit_id, id }) => {
       const background = {
         backgroundImage: `url(${
           profile_path
@@ -18,9 +19,11 @@ class CircleSlider extends Component {
         })`
       };
       return (
-        <div className="slider__slide" key={credit_id}>
-          <div className="slider__img" style={background}></div>
-        </div>
+        <Link to={`/person/${id}`} key={id}>
+          <div className="slider__slide">
+            <div className="slider__img" style={background}></div>
+          </div>
+        </Link>
       );
     });
   };

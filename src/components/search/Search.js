@@ -9,6 +9,7 @@ import {
   searchKeyword,
   sortBy
 } from "../../store/actions";
+import history from "../../routes/History";
 import "./Search.scss";
 
 class Search extends Component {
@@ -29,6 +30,7 @@ class Search extends Component {
     this.props.currentTap({ tap: { id: "", icon: "", api: "" } });
     this.setState({ search: "" });
     this.props.sortBy({ sortBy: "" });
+    history.push("/");
   };
 
   handleChange = e => {

@@ -23,7 +23,7 @@ class Card extends Component {
         {this.props.list &&
           this.props.list.map(({ title, id, poster_path, vote_average }) => {
             return (
-              <Link to={`/${id}`} key={id} className="card-space">
+              <Link to={`/movie/${id}`} key={id} className="card-space">
                 <BootStrapCard className="border-0 card text-center">
                   {/* {this.state.isLoaded ? <Spinner /> : null} */}
                   <BootStrapCard.Img

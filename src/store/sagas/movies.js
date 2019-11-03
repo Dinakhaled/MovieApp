@@ -5,7 +5,8 @@ import {
   fetchMovies,
   fetchMovie,
   fetchCredits,
-  fetchRecommendedMovies
+  fetchRecommendedMovies,
+  fetchPerson
 } from "../actions";
 
 export function* fetchGenresSaga() {
@@ -37,7 +38,7 @@ export function* fetchMovieSaga({ id }) {
 
 export function* fetchCreditsSaga({ id }) {
   try {
-    const response = yield call(API.gecredits, id);
+    const response = yield call(API.getcredits, id);
     yield put(fetchCredits(response.data));
   } catch (err) {
     console.log(err);
@@ -48,6 +49,15 @@ export function* fetchRecommendedMovieSaga({ id }) {
   try {
     const response = yield call(API.getRecommendMovies, id);
     yield put(fetchRecommendedMovies(response.data));
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export function* fetchPersonSaga({ id }) {
+  try {
+    const response = yield call(API.getPerson, id);
+    yield put(fetchPerson(response.data));
   } catch (err) {
     console.log(err);
   }

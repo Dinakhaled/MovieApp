@@ -72,3 +72,13 @@ export const fetchRecommendedMoviesRequest = id => ({
   type: types.RECOMMENDED_MOVIES_REQUEST,
   id
 });
+
+export const fetchPerson = person => ({
+  type: types.FETCH_PERSON,
+  payload: person
+});
+
+export const fetchPersonRequest = id => ({
+  type: types.FETCH_PERSON_REQUEST,
+  id
+});

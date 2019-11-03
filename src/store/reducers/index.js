@@ -7,6 +7,7 @@ import loader from "./Loading";
 import sortBy from "./sortBy";
 import credits from "./credits";
 import currentPage from "./currentPage";
+import person from "./person";
 
 export default combineReducers({
   genres,
@@ -16,5 +17,6 @@ export default combineReducers({
   loader,
   sortBy,
   credits,
-  currentPage
+  currentPage,
+  person
 });
