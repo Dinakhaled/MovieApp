@@ -37,8 +37,10 @@ class SideMenu extends Component {
     this.props.fetchMoviesReq(api, {
       page: 1,
       with_genres: api ? "" : id,
-      sort_by: this.props.sortKey ? this.props.sortKey : ""
+      sort_by: this.props.sortKey
     });
+    console.log(this.props.sortKey);
+
     history.push("/");
   };
 

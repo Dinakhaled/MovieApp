@@ -31,9 +31,12 @@ const getGenre = async () => {
 };
 
 const getMovies = async (type, params) => {
+  console.log(params.sort_by);
+
   return await axiosInstance.get(`${checkMoviesRequest(params, type)}`, {
     params: {
       ...params
+      // sort_by: params.sort_by ? params.sort_by : "popularity.desc"
     }
   });
 };

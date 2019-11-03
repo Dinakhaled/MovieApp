@@ -49,6 +49,14 @@ class DetailsPage extends Component {
     this.setState({ isVideoModalOpen: true });
   };
 
+  handleClickInlineList = e => {
+    const values = e.target.id.split(",");
+    this.props.currentTap({
+      tap: { id: parseInt(values[0], 10), name: values[1] }
+    });
+    history.push("/");
+  };
+
   render() {
     const {
       poster_path,
@@ -89,6 +97,7 @@ class DetailsPage extends Component {
               list={genres || []}
               title="The Genres"
               className="mb-lg-40"
+              handleClick={e => this.handleClickInlineList(e)}
             />
             <Text title="The Synopsis" p={overview} className="mb-lg-40" />
             <Slider
@@ -159,7 +168,7 @@ class DetailsPage extends Component {
 }
 
 const mapStateToProps = ({ movies, credits }) => {
-  return { movie: movies, credits: credits.crew };
+  return { movie: movies, credits: credits.cast };
 };
 
 export default connect(

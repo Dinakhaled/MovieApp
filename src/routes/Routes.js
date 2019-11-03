@@ -6,13 +6,17 @@ const HomePage = React.lazy(() => import("../containers/homePage/HomePage"));
 const DetailsPage = React.lazy(() =>
   import("../containers/detailsPage/DetailsPage")
 );
+const PersonDetails = React.lazy(() =>
+  import("../containers/personDetails/PersonDetails")
+);
 
 const Routes = (
   <Suspense fallback={<p>loading...</p>}>
     <Router history={history}>
       <Switch>
         <HomePage path="/" exact />
-        <DetailsPage path="/:id" />
+        <DetailsPage path="/movie/:id" />
+        <PersonDetails path="/person/:id" />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>

@@ -6,7 +6,12 @@ import "./ListInline.scss";
 const renderList = props => {
   return props.list.map(({ name, id }) => {
     return (
-      <li className="mr-4 title small-bold inline-list__item" key={id}>
+      <li
+        className="mr-4 title small-bold inline-list__item"
+        key={id}
+        id={`${id},${name}`}
+        value={name}
+      >
         <FontAwesomeIcon className="fontAwesome mr-2" icon={faDotCircle} />
         {name}
       </li>
@@ -16,7 +21,7 @@ const renderList = props => {
 
 const ListInline = props => {
   return (
-    <div className={props.className}>
+    <div className={props.className} onClick={props.handleClick}>
       <h2 className="title mb-3">{props.title}</h2>
       <ul className="p-0 list-unstyled d-flex inline-list">
         {renderList(props)}

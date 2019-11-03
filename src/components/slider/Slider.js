@@ -4,14 +4,18 @@ import "./Slider.scss";
 
 class CircleSlider extends Component {
   state = {
-    display: true,
+    display: true
     // width: 800
   };
 
   renderSlides = () => {
     return this.props.list.map(({ profile_path, credit_id }) => {
       const background = {
-        backgroundImage: `url(${profile_path ? `https://image.tmdb.org/t/p/w342${profile_path}` : "/assets/images/profile-fail.png"})`
+        backgroundImage: `url(${
+          profile_path
+            ? `https://image.tmdb.org/t/p/w342${profile_path}`
+            : "/assets/images/profile-fail.png"
+        })`
       };
       return (
         <div className="slider__slide" key={credit_id}>

@@ -30,6 +30,9 @@ class Sort extends Component {
   render() {
     return (
       <Select
+        // value={this.state.sortingList.filter(
+        //   option => option.label === "Popularity"
+        // )}
         options={this.state.sortingList}
         className="sort mb-lg-40"
         theme={theme => ({
