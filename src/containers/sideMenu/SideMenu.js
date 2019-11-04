@@ -39,8 +39,6 @@ class SideMenu extends Component {
       with_genres: api ? "" : id,
       sort_by: this.props.sortKey
     });
-    console.log(this.props.sortKey);
-
     history.push("/");
   };
 

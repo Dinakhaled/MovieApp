@@ -16,23 +16,21 @@ class Sort extends Component {
     super(props);
     this.state = {
       sortingList,
-      selected: ""
+      selected: sortingList[0]
     };
   }
 
   handleChange = e => {
-    this.setState({ selected: e.value }, () => {
-      this.props.sortBy(this.state.selected);
-      this.props.click(this.state.selected);
+    this.setState({ selected: e }, () => {
+      this.props.sortBy(this.state.selected.value);
+      this.props.click(this.state.selected.value);
     });
   };
 
   render() {
     return (
       <Select
-        // value={this.state.sortingList.filter(
-        //   option => option.label === "Popularity"
-        // )}
+        value={this.state.selected}
         options={this.state.sortingList}
         className="sort mb-lg-40"
         theme={theme => ({
