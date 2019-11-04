@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { fetchRecommendedMoviesRequest } from "../../store/actions";
+import {
+  fetchRecommendedMoviesRequest,
+  fetchMoviesReq
+} from "../../store/actions";
 import { connect } from "react-redux";
 import Title from "../../components/title/Title";
 import Card from "../../components/card/Card";
@@ -14,16 +17,27 @@ class Recommended extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchRecommendedMoviesRequest(
-      history.location.pathname.replace("/", "")
-    );
+    if (this.props.path === "person") {
+      this.props.fetchMoviesReq("", {
+        page: 1,
+        with_cast: history.location.pathname.replace("/person/", ""),
+        with_genres: true
+      });
+    } else {
+      this.props.fetchRecommendedMoviesRequest(
+        history.location.pathname.replace("/", "")
+      );
+    }
+
+    console.log(this.props);
+    console.log(history.location.pathname.replace("/person/", ""));
   }
 
   render() {
-    const { results, className } = this.props;
+    const { results, className, main } = this.props;
     return (
       <div className={className}>
-        <Title main="Recommended" sub={"movies"} />
+        <Title main={main || "Recommended"} sub={"movies"} />
         <Row className="grid-5 mx-auto">
           <Card list={results} />
         </Row>
@@ -39,5 +53,5 @@ const mapStateToProps = ({ movies }) => {
 
 export default connect(
   mapStateToProps,
-  { fetchRecommendedMoviesRequest }
+  { fetchRecommendedMoviesRequest, fetchMoviesReq }
 )(Recommended);

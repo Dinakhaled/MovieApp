@@ -14,6 +14,8 @@ axiosInstance.interceptors.response.use(
 );
 
 const checkMoviesRequest = (params, type) => {
+  console.log(params.with_cast);
+
   switch (true) {
     case !params.with_genres && !params.query:
       return `/movie/${type}`;
@@ -31,8 +33,6 @@ const getGenre = async () => {
 };
 
 const getMovies = async (type, params) => {
-  console.log(params.sort_by);
-
   return await axiosInstance.get(`${checkMoviesRequest(params, type)}`, {
     params: {
       ...params

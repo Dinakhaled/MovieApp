@@ -42,7 +42,7 @@ class DetailsPage extends Component {
   }
 
   handleClickBack = () => {
-    history.push("/");
+    history.goBack();
   };
 
   openModal = () => {
