@@ -28,9 +28,6 @@ class Recommended extends Component {
         history.location.pathname.replace("/", "")
       );
     }
-
-    console.log(this.props);
-    console.log(history.location.pathname.replace("/person/", ""));
   }
 
   render() {
@@ -41,7 +38,7 @@ class Recommended extends Component {
         <Row className="grid-5 mx-auto">
           <Card list={results} />
         </Row>
-        <Pagination />
+        <Pagination type="recommended" />
       </div>
     );
   }

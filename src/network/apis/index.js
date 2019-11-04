@@ -14,8 +14,6 @@ axiosInstance.interceptors.response.use(
 );
 
 const checkMoviesRequest = (params, type) => {
-  console.log(params.with_cast);
-
   switch (true) {
     case !params.with_genres && !params.query:
       return `/movie/${type}`;
@@ -49,8 +47,14 @@ const getMovie = async id => {
   });
 };
 
-const getRecommendMovies = async id => {
-  return await axiosInstance.get(`/${id}/recommendations`);
+const getRecommendMovies = async (id, params) => {
+  console.log(params);
+
+  return await axiosInstance.get(`/${id}/recommendations`, {
+    params: {
+      ...params
+    }
+  });
 };
 
 const getcredits = async id => await axiosInstance.get(`/movie/${id}/credits`);

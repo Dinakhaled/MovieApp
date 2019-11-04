@@ -68,9 +68,10 @@ export const fetchRecommendedMovies = movie => ({
   payload: movie
 });
 
-export const fetchRecommendedMoviesRequest = id => ({
+export const fetchRecommendedMoviesRequest = (id, params) => ({
   type: types.RECOMMENDED_MOVIES_REQUEST,
-  id
+  id,
+  params
 });
 
 export const fetchPerson = person => ({

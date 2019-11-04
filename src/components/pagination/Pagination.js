@@ -7,8 +7,10 @@ import {
   fetchMoviesReq,
   searchKeyword,
   sortBy,
-  currentPage
+  currentPage,
+  fetchRecommendedMoviesRequest
 } from "../../store/actions";
+import history from "../../routes/History";
 
 class Pagination extends Component {
   constructor(props) {
@@ -17,17 +19,39 @@ class Pagination extends Component {
   }
 
   handleClick = ({ page }, next) => {
-    this.props.fetchMoviesReq(this.props.tap.api, {
-      page: next ? page + 1 : page - 1,
-      with_genres:
-        this.props.tap.id === 1 ||
-        this.props.tap.id === 2 ||
-        this.props.tap.id === 3
-          ? ""
-          : this.props.tap.id,
-      query: this.props.search ? this.props.search : "",
-      sort_by: this.props.sortKey ? this.props.sortKey : ""
-    });
+    console.log(history.location.pathname.includes("movie"));
+
+    switch (true) {
+      case history.location.pathname.includes("movie"):
+        console.log("movieeeeeeeeee");
+
+        this.props.fetchRecommendedMoviesRequest(
+          history.location.pathname.replace("/", ""),
+          {
+            page: next ? page + 1 : page - 1
+          }
+        );
+        break;
+      case history.location.pathname.includes("person"):
+        this.props.fetchMoviesReq("", {
+          page: next ? page + 1 : page - 1,
+          with_genres: true,
+          with_cast: history.location.pathname.replace("/person/", "")
+        });
+        break;
+      default:
+        this.props.fetchMoviesReq(this.props.tap.api, {
+          page: next ? page + 1 : page - 1,
+          with_genres:
+            this.props.tap.id === 1 ||
+            this.props.tap.id === 2 ||
+            this.props.tap.id === 3
+              ? ""
+              : this.props.tap.id,
+          query: this.props.search ? this.props.search : "",
+          sort_by: this.props.sortKey ? this.props.sortKey : ""
+        });
+    }
   };
 
   renderNextBtn = () => {
@@ -92,5 +116,12 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { currentTap, fetchMoviesReq, searchKeyword, sortBy, currentPage }
+  {
+    currentTap,
+    fetchMoviesReq,
+    searchKeyword,
+    sortBy,
+    currentPage,
+    fetchRecommendedMoviesRequest
+  }
 )(Pagination);

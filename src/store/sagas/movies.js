@@ -45,9 +45,11 @@ export function* fetchCreditsSaga({ id }) {
   }
 }
 
-export function* fetchRecommendedMovieSaga({ id }) {
+export function* fetchRecommendedMovieSaga({ id, params }) {
+  console.log(params);
+
   try {
-    const response = yield call(API.getRecommendMovies, id);
+    const response = yield call(API.getRecommendMovies, id, params);
     yield put(fetchRecommendedMovies(response.data));
   } catch (err) {
     console.log(err);
