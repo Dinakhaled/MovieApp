@@ -19,12 +19,8 @@ class Pagination extends Component {
   }
 
   handleClick = ({ page }, next) => {
-    console.log(history.location.pathname.includes("movie"));
-
     switch (true) {
       case history.location.pathname.includes("movie"):
-        console.log("movieeeeeeeeee");
-
         this.props.fetchRecommendedMoviesRequest(
           history.location.pathname.replace("/", ""),
           {
