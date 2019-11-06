@@ -3,6 +3,7 @@ import { Card as BootStrapCard } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "../rating/Rating";
 // import Spinner from "../spinner/Spinner";
+import { animateScroll as scroll } from "react-scroll";
 import "./Card.scss";
 
 class Card extends Component {
@@ -16,6 +17,9 @@ class Card extends Component {
   // handleImageLoaded = () => {
   //   this.setState({ isLoaded: false });
   // };
+  scrollToTop = () => {
+    scroll.scrollToTop();
+  };
 
   render() {
     return (
@@ -23,7 +27,12 @@ class Card extends Component {
         {this.props.list &&
           this.props.list.map(({ title, id, poster_path, vote_average }) => {
             return (
-              <Link to={`/movie/${id}`} key={id} className="card-space">
+              <Link
+                to={`/movie/${id}`}
+                key={id}
+                className="card-space"
+                onClick={this.scrollToTop()}
+              >
                 <BootStrapCard className="border-0 card text-center">
                   {/* {this.state.isLoaded ? <Spinner /> : null} */}
                   <BootStrapCard.Img
