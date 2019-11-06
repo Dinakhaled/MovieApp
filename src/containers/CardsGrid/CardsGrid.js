@@ -12,6 +12,7 @@ import { Row } from "react-bootstrap";
 import Pagination from "../../components/pagination/Pagination";
 import history from "../../routes/History";
 import Sort from "../../components/sort/Sort";
+import Empty from "../../components/empty/Empty";
 
 class CardsGrid extends Component {
   constructor(props) {
@@ -68,11 +69,7 @@ class CardsGrid extends Component {
             <Pagination type={type} />
           </React.Fragment>
         ) : (
-          <div className="text-center">
-            <h1 className="h1-2-light">Sorry!</h1>
-            <h2 className="h2-2">There are no recommended movies...</h2>
-            <img src="/assets/images/not-found.png" className="w-50" />
-          </div>
+          <Empty title="There are no recommended movies..." />
         )}
       </div>
     );
