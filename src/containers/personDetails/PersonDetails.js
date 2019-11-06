@@ -9,7 +9,7 @@ import Button from "../../components/buttons/Button";
 import { faArrowLeft, faLink } from "@fortawesome/free-solid-svg-icons";
 import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import history from "../../routes/History";
-import Recommended from "../recommended/Recommended";
+import CardsGrid from "../CardsGrid/CardsGrid";
 
 class PersonDetails extends Component {
   constructor(props) {
@@ -94,7 +94,7 @@ class PersonDetails extends Component {
             </div>
           </Col>
         </Row>
-        <Recommended main="Also enters in" path="person" className="mt-lg-60" />
+        <CardsGrid main="Also enters in" path="person" className="mt-lg-60" />
       </Container>
     );
   }

@@ -17,7 +17,7 @@ import { faArrowLeft, faPlay, faLink } from "@fortawesome/free-solid-svg-icons";
 import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import history from "../../routes/History";
 import ModalVideo from "react-modal-video";
-import Recommended from "../recommended/Recommended";
+import CardsGrid from "../CardsGrid/CardsGrid";
 
 class DetailsPage extends Component {
   constructor(props) {
@@ -161,7 +161,7 @@ class DetailsPage extends Component {
             onClose={() => this.setState({ isVideoModalOpen: false })}
           />
         )}
-        <Recommended className="mt-lg-60" />
+        <CardsGrid type="recommended" className="mt-lg-60" />
       </Container>
     );
   }

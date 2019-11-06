@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Title from "../../components/title/Title";
-import Card from "../../components/card/Card";
-import { Row } from "react-bootstrap";
-import Pagination from "../../components/pagination/Pagination";
-import Sort from "../../components/sort/Sort";
+// import Title from "../../components/title/Title";
+// import Card from "../../components/card/Card";
+// import { Row } from "react-bootstrap";
+// import Pagination from "../../components/pagination/Pagination";
+// import Sort from "../../components/sort/Sort";
 import { connect } from "react-redux";
 import {
   currentTap,
@@ -12,6 +12,7 @@ import {
   sortBy,
   currentPage
 } from "../../store/actions";
+import CardsGrid from "../CardsGrid/CardsGrid";
 import "./HomePage.scss";
 
 class HomePage extends Component {
@@ -26,18 +27,18 @@ class HomePage extends Component {
     });
   }
 
-  handleClick = sort => {
-    this.props.fetchMoviesReq(this.props.tap.api, {
-      page: this.props.page,
-      with_genres: this.props.tap.api ? "" : this.props.tap.id,
-      sort_by: sort ? sort : ""
-    });
-  };
+  // handleClick = sort => {
+  //   this.props.fetchMoviesReq(this.props.tap.api, {
+  //     page: this.props.page,
+  //     with_genres: this.props.tap.api ? "" : this.props.tap.id,
+  //     sort_by: sort ? sort : ""
+  //   });
+  // };
 
   render() {
     return (
       <React.Fragment>
-        <Title
+        {/* <Title
           main={this.props.tap.name ? this.props.tap.name : this.props.search}
           sub={this.props.tap.name ? "movies" : "search results"}
         />
@@ -47,7 +48,12 @@ class HomePage extends Component {
         <Row className="grid-5 mx-auto">
           <Card list={this.props.movies.results} />
         </Row>
-        <Pagination />
+        <Pagination /> */}
+        <CardsGrid
+          main={this.props.tap.name ? this.props.tap.name : this.props.search}
+          sub={this.props.tap.name ? "movies" : "search results"}
+          results={this.props.movies.results}
+        />
       </React.Fragment>
     );
   }
