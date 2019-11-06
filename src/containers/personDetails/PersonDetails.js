@@ -94,7 +94,7 @@ class PersonDetails extends Component {
             </div>
           </Col>
         </Row>
-        <CardsGrid main="Also enters in" path="person" className="mt-lg-60" />
+        <CardsGrid main="Also enters in" type="person" className="mt-lg-60" />
       </Container>
     );
   }

@@ -27,20 +27,32 @@ class CardsGrid extends Component {
   };
 
   componentDidMount() {
-    if (this.props.path === "person") {
-      this.props.fetchMoviesReq("", {
-        page: 1,
-        with_cast: history.location.pathname.replace("/person/", ""),
-        with_genres: true
-      });
-    } else {
-      this.props.fetchRecommendedMoviesRequest(
-        history.location.pathname.replace("/", "")
-      );
+    switch (true) {
+      case this.props.type === "person":
+        this.props.fetchMoviesReq("", {
+          page: 1,
+          with_cast: history.location.pathname.replace("/person/", ""),
+          with_genres: true
+        });
+        break;
+      case this.props.type === "recommended":
+        this.props.fetchRecommendedMoviesRequest(
+          history.location.pathname.replace("/", "")
+        );
+        break;
+      default:
+        this.props.fetchMoviesReq(this.props.tap.api, {
+          page: this.props.fetchRecommendedMoviesRequest
+            ? 1
+            : this.props.page || 1,
+          with_genres: this.props.tap.api ? "" : this.props.tap.id
+        });
     }
   }
 
   render() {
+    console.log(this.props.tap.api);
+
     const { results, className, main, type } = this.props;
     return (
       <div className={className}>
