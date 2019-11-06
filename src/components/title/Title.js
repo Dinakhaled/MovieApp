@@ -7,7 +7,7 @@ const Title = ({ main, sub, size }) => {
       {size === "lg" ? (
         <div className="mb-lg-20">
           <div>
-            <h1 className="h1-2 title">{main}</h1>
+            <h1 className="h1-2-light title">{main}</h1>
             <h2 className="title title__sub">{sub}</h2>
           </div>
         </div>

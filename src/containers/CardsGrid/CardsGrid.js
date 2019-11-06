@@ -52,8 +52,7 @@ class CardsGrid extends Component {
   }
 
   render() {
-    console.log(this.props);
-
+    console.log(this.props.results);
     const { results, className, main, type } = this.props;
     return (
       <div className={className}>
@@ -61,10 +60,20 @@ class CardsGrid extends Component {
         {this.props.tap.api || this.props.search || type ? null : (
           <Sort click={this.handleClick} />
         )}
-        <Row className="grid-5 mx-auto">
-          <Card list={results} />
-        </Row>
-        <Pagination type={type} />
+        {results && results.length > 0 ? (
+          <React.Fragment>
+            <Row className="grid-5 mx-auto">
+              <Card list={results} />
+            </Row>
+            <Pagination type={type} />
+          </React.Fragment>
+        ) : (
+          <div className="text-center">
+            <h1 className="h1-2-light">Sorry!</h1>
+            <h2 className="h2-2">There are no recommended movies...</h2>
+            <img src="/assets/images/not-found.png" className="w-50" />
+          </div>
+        )}
       </div>
     );
   }

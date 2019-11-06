@@ -30,6 +30,11 @@ h1 {
   font-family: $medium-font;
 }
 
+.h1-2-light {
+  font-size: $large-bold;
+  font-family: $light-font;
+}
+
 .h1-light {
   font-size: $large-light;
   font-family: $light-font;
@@ -37,6 +42,11 @@ h1 {
 
 h2 {
   font-size: $medium-bold;
+  font-family: $bold;
+}
+
+.h2-2 {
+  font-size: $large-light;
   font-family: $bold;
 }
 
