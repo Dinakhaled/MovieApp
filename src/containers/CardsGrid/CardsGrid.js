@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
   fetchRecommendedMoviesRequest,
   fetchMoviesReq,
-  currentTap
+  currentTap,
+  searchKeyword
 } from "../../store/actions";
 import { connect } from "react-redux";
 import Title from "../../components/title/Title";
@@ -51,7 +52,7 @@ class CardsGrid extends Component {
   }
 
   render() {
-    console.log(this.props.tap.api);
+    console.log(this.props);
 
     const { results, className, main, type } = this.props;
     return (
@@ -69,11 +70,11 @@ class CardsGrid extends Component {
   }
 }
 
-const mapStateToProps = ({ movies, currentTap }) => {
-  return { ...movies, ...currentTap };
+const mapStateToProps = ({ movies, currentTap, searchKeyword }) => {
+  return { ...movies, ...currentTap, ...searchKeyword };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchRecommendedMoviesRequest, fetchMoviesReq, currentTap }
+  { fetchRecommendedMoviesRequest, fetchMoviesReq, currentTap, searchKeyword }
 )(CardsGrid);
