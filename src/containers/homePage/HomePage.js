@@ -9,6 +9,7 @@ import {
 } from "../../store/actions";
 import CardsGrid from "../CardsGrid/CardsGrid";
 import "./HomePage.scss";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 class HomePage extends Component {
   constructor(props) {
@@ -19,6 +20,11 @@ class HomePage extends Component {
   render() {
     return (
       <React.Fragment>
+        <PageTitle
+          title={`${
+            this.props.tap.name ? this.props.tap.name : this.props.search
+          } Movies`}
+        />
         <CardsGrid
           main={this.props.tap.name ? this.props.tap.name : this.props.search}
           sub={this.props.tap.name ? "movies" : "search results"}

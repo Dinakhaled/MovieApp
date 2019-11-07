@@ -10,6 +10,7 @@ import { faArrowLeft, faLink } from "@fortawesome/free-solid-svg-icons";
 import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import history from "../../routes/History";
 import CardsGrid from "../CardsGrid/CardsGrid";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 class PersonDetails extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class PersonDetails extends Component {
     } = this.props.person;
     return (
       <Container fluid>
+        <PageTitle title={name} />
         <Row className="px-5">
           <Col lg={5}>
             <Image

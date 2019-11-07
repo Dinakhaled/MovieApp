@@ -34,7 +34,6 @@ const getMovies = async (type, params) => {
   return await axiosInstance.get(`${checkMoviesRequest(params, type)}`, {
     params: {
       ...params
-      // sort_by: params.sort_by ? params.sort_by : "popularity.desc"
     }
   });
 };
@@ -48,8 +47,6 @@ const getMovie = async id => {
 };
 
 const getRecommendMovies = async (id, params) => {
-  console.log(params);
-
   return await axiosInstance.get(`/${id}/recommendations`, {
     params: {
       ...params

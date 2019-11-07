@@ -53,7 +53,6 @@ class CardsGrid extends Component {
   }
 
   render() {
-    console.log(this.props.results);
     const { results, className, main, type } = this.props;
     return (
       <div className={className}>

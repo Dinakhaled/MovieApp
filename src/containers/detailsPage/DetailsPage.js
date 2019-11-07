@@ -18,6 +18,7 @@ import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import history from "../../routes/History";
 import ModalVideo from "react-modal-video";
 import CardsGrid from "../CardsGrid/CardsGrid";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 class DetailsPage extends Component {
   constructor(props) {
@@ -72,8 +73,10 @@ class DetailsPage extends Component {
       homepage,
       videos
     } = this.props.movie;
+    const { credits } = this.props;
     return (
       <Container fluid>
+        <PageTitle title={original_title} />
         <Row className="px-5">
           <Col lg={5}>
             <Image
@@ -93,18 +96,24 @@ class DetailsPage extends Component {
                 / {release_date && release_date.split("-")[0]}
               </h3>
             </div>
-            <ListInline
-              list={genres || []}
-              title="The Genres"
-              className="mb-lg-40"
-              handleClick={e => this.handleClickInlineList(e)}
-            />
-            <Text title="The Synopsis" p={overview} className="mb-lg-40" />
-            <Slider
-              list={this.props.credits || []}
-              title="the cast"
-              className="mb-lg-40"
-            />
+            {genres && genres.length > 0 && (
+              <ListInline
+                list={genres || []}
+                title="The Genres"
+                className="mb-lg-40"
+                handleClick={e => this.handleClickInlineList(e)}
+              />
+            )}
+            {overview && (
+              <Text title="The Synopsis" p={overview} className="mb-lg-40" />
+            )}
+            {credits && credits.length > 0 && (
+              <Slider
+                list={credits || []}
+                title="the cast"
+                className="mb-lg-40"
+              />
+            )}
             <div className="d-flex justify-content-between">
               <div className="d-flex">
                 {homepage && (

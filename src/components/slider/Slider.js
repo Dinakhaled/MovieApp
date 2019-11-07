@@ -31,9 +31,10 @@ class CircleSlider extends Component {
   render() {
     const settings = {
       infinite: false,
-      speed: 500,
+      speed: 400,
       slidesToShow: 9,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      autoplay: true
     };
     return (
       <div className={this.props.className}>
