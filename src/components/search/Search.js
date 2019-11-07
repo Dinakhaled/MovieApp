@@ -11,7 +11,6 @@ import {
 } from "../../store/actions";
 import history from "../../routes/History";
 import "./Search.scss";
-import PageTitle from "../PageTitle/PageTitle";
 
 class Search extends Component {
   constructor(props) {
