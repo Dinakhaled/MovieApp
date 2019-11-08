@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { Card as BootStrapCard } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "../rating/Rating";
-// import Spinner from "../spinner/Spinner";
+import Spinner from "../spinner/Spinner";
 import { animateScroll as scroll } from "react-scroll";
 import "./Card.scss";
+const CardImage = React.lazy(() => import("../cardImage/CardImage"));
 
 class Card extends Component {
   constructor(props) {
@@ -14,9 +15,6 @@ class Card extends Component {
     };
   }
 
-  // handleImageLoaded = () => {
-  //   this.setState({ isLoaded: false });
-  // };
   scrollToTop = () => {
     scroll.scrollToTop();
   };
@@ -33,18 +31,10 @@ class Card extends Component {
                 className="card-space"
                 onClick={this.scrollToTop()}
               >
-                <BootStrapCard className="border-0 card text-center">
-                  {/* {this.state.isLoaded ? <Spinner /> : null} */}
-                  <BootStrapCard.Img
-                    className="card__img"
-                    variant="top"
-                    src={
-                      poster_path
-                        ? `https://image.tmdb.org/t/p/w342${poster_path}`
-                        : `/assets/images/image-fail.png`
-                    }
-                    // onLoad={() => this.handleImageLoaded()}
-                  />
+                <BootStrapCard className="border-0 card text-center d-flex align-items-center">
+                  <Suspense fallback={<Spinner />}>
+                    <CardImage src={poster_path} />
+                  </Suspense>
                   <BootStrapCard.Body>
                     <BootStrapCard.Title>
                       <h2 className="h2-light card__title">{title}</h2>

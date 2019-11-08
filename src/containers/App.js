@@ -6,7 +6,7 @@ import SideMenu from "../containers/sideMenu/SideMenu";
 import Search from "../components/search/Search";
 import { connect } from "react-redux";
 import { loader } from "../store/actions";
-// import Loader from "../components/loader/Loader";
+import Loader from "../components/loader/Loader";
 import { Container, Row, Col } from "react-bootstrap";
 // ========== General styles ==========
 import "./App.scss";
@@ -17,6 +17,7 @@ class App extends Component {
     this.state = {};
   }
   render() {
+    const { loading } = this.props;
     return (
       <Container fluid>
         <Row>
@@ -29,11 +30,7 @@ class App extends Component {
             <SideMenu />
           </Col>
           <Col lg={10} className="px-5 py-4">
-            {/* {this.props.loading ? (
-              <div className="h-100 d-flex align-items-center justify-content-center">
-                <Loader />
-              </div>
-            ) : null} */}
+            {loading ? <Loader /> : null}
             <Router history={history}>{Routes}</Router>
           </Col>
         </Row>

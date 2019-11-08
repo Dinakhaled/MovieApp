@@ -1,5 +1,5 @@
 import axios from "axios";
-import { successHandler, errorHandler } from "../interceptors";
+import { successHandler, errorHandler, requestHandler } from "../interceptors";
 
 export const axiosInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
@@ -8,6 +8,7 @@ export const axiosInstance = axios.create({
   }
 });
 
+axiosInstance.interceptors.request.use(request => requestHandler(request));
 axiosInstance.interceptors.response.use(
   response => successHandler(response),
   error => errorHandler(error)

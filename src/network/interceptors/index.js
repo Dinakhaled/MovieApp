@@ -7,9 +7,15 @@ export const isHandlerEnabled = (config = {}) => {
     : true;
 };
 
+export const requestHandler = request => {
+  if (isHandlerEnabled(request)) {
+    store.dispatch(loader({ loading: true }));
+  }
+  return request;
+};
+
 export const successHandler = response => {
-  store.dispatch(loader({ loading: true }));
-  if (isHandlerEnabled(response.config)) {
+  if (isHandlerEnabled(response)) {
     store.dispatch(loader({ loading: false }));
   }
   return response;

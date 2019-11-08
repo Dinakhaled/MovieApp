@@ -61,7 +61,7 @@ class DetailsPage extends Component {
   render() {
     const {
       poster_path,
-      original_title,
+      title,
       tagline,
       vote_average,
       spoken_languages,
@@ -76,7 +76,7 @@ class DetailsPage extends Component {
     const { credits } = this.props;
     return (
       <Container fluid>
-        <PageTitle title={original_title} />
+        <PageTitle title={title} />
         <Row className="px-5">
           <Col lg={5}>
             <Image
@@ -88,12 +88,14 @@ class DetailsPage extends Component {
             />
           </Col>
           <Col lg={6}>
-            <Title size="lg" main={original_title} sub={tagline} />
+            <Title size="lg" main={title} sub={tagline} />
             <div className="d-flex justify-content-between align-items-center mb-lg-60">
               <Rating Rate={(vote_average / 10) * 5} text={vote_average} />
               <h3 className="text-light title">
-                {spoken_languages && spoken_languages[0].name} / {runtime} min.
-                / {release_date && release_date.split("-")[0]}
+                {spoken_languages &&
+                  spoken_languages.length > 0 &&
+                  spoken_languages[0].name}{" "}
+                / {runtime} min. / {release_date && release_date.split("-")[0]}
               </h3>
             </div>
             {genres && genres.length > 0 && (
