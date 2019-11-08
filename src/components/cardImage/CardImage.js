@@ -11,7 +11,7 @@ const CardImage = ({ src }) => {
     <React.Fragment>
       {!loaded ? <Spinner /> : null}
       <BootStrapCard.Img
-        className="card__img"
+        className={`card__img ${!loaded ? "d-none" : ""}`}
         variant="top"
         src={
           src

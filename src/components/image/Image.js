@@ -12,7 +12,7 @@ const Image = ({ src }) => {
   return (
     <React.Fragment>
       {!loaded ? <Spinner /> : null}
-      <div className="image-wrapper">
+      <div className={`image-wrapper ${!loaded ? "d-none" : ""}`}>
         <img
           src={background}
           alt={background}
