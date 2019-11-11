@@ -8,6 +8,7 @@ import sortBy from "./sortBy";
 import credits from "./credits";
 import currentPage from "./currentPage";
 import person from "./person";
+import errorMessage from "./error";
 
 export default combineReducers({
   genres,
@@ -18,5 +19,6 @@ export default combineReducers({
   sortBy,
   credits,
   currentPage,
-  person
+  person,
+  errorMessage
 });

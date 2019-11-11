@@ -68,7 +68,7 @@ class CardsGrid extends Component {
             <Pagination type={type} />
           </React.Fragment>
         ) : (
-          <Empty title="There are no recommended movies..." />
+          <Empty title="There are no movies..." />
         )}
       </div>
     );

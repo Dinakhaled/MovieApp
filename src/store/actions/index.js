@@ -83,3 +83,8 @@ export const fetchPersonRequest = id => ({
   type: types.FETCH_PERSON_REQUEST,
   id
 });
+
+export const errorMessage = error => ({
+  type: types.ERROR_MESSAGE,
+  payload: error
+});

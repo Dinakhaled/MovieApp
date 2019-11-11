@@ -27,7 +27,7 @@ class Search extends Component {
       page: 1,
       query: this.state.search
     });
-    this.props.currentTap({ tap: { id: "", icon: "", api: "" } });
+    // this.props.currentTap({ tap: { id: "", icon: "", api: "" } });
     this.setState({ search: "" });
     this.props.sortBy({ sortBy: "" });
     history.push("/");

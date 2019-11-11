@@ -1,4 +1,4 @@
-import { loader } from "../../store/actions";
+import { loader, errorMessage } from "../../store/actions";
 import store from "../../store";
 
 export const isHandlerEnabled = (config = {}) => {
@@ -23,7 +23,8 @@ export const successHandler = response => {
 
 export const errorHandler = error => {
   if (isHandlerEnabled(error.config)) {
-    // Handle errors
+    store.dispatch(loader({ loading: false }));
+    store.dispatch(errorMessage(error.response.data.status_message));
   }
   return Promise.reject({ ...error });
 };
