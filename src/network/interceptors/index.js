@@ -17,6 +17,7 @@ export const requestHandler = request => {
 export const successHandler = response => {
   if (isHandlerEnabled(response)) {
     store.dispatch(loader({ loading: false }));
+    store.dispatch(errorMessage(""));
   }
   return response;
 };

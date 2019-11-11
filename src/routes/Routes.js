@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Router, Switch, Redirect } from "react-router-dom";
+import { Router, Switch } from "react-router-dom";
 import history from "./History";
 import Loader from "../components/loader/Loader";
 // ========= Components =========

@@ -16,7 +16,7 @@ const Empty = props => {
         className="w-50 mb-4"
         alt="not-found"
       />
-      {location.pathname == "/" ? null : (
+      {location.pathname === "/" ? null : (
         <Link to="/" className="d-flex justify-content-center">
           <Button
             icon={faHome}
