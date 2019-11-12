@@ -19,6 +19,11 @@ class Pagination extends Component {
   }
 
   handleClick = ({ page }, next) => {
+    let currentUrlParams = new URLSearchParams(window.location.search);
+    currentUrlParams.set("page", this.props.movies.page);
+    history.push(window.location.pathname + "?" + currentUrlParams.toString());
+    console.log(history.location.search.split("="[1]));
+
     switch (true) {
       case history.location.pathname.includes("movie"):
         this.props.fetchRecommendedMoviesRequest(
