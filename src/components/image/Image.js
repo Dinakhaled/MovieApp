@@ -8,14 +8,13 @@ const Image = ({ src }) => {
     setLoading(true);
   };
 
-  const background = `${src ? src : "/assets/images/image-fail.png"}`;
   return (
     <React.Fragment>
       {!loaded ? <Spinner /> : null}
       <div className={`image-wrapper ${!loaded ? "d-none" : ""}`}>
         <img
-          src={background}
-          alt={background}
+          src={src ? src : `/assets/images/image-fail.png`}
+          alt={src}
           className="image"
           onLoad={() => handleLoading()}
         />

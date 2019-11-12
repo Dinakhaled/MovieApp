@@ -31,7 +31,9 @@ class App extends Component {
           </Col>
           <Col lg={10} className="px-5 py-4">
             {loading ? <Loader /> : null}
-            <Router history={history}>{Routes}</Router>
+            <div className={`${loading ? "d-none" : ""}`}>
+              <Router history={history}>{Routes}</Router>
+            </div>
           </Col>
         </Row>
       </Container>
