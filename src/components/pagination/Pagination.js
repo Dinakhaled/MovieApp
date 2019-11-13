@@ -11,6 +11,7 @@ import {
   fetchRecommendedMoviesRequest
 } from "../../store/actions";
 import history from "../../routes/History";
+import { pushToUrlNewParam } from "../../services";
 
 class Pagination extends Component {
   constructor(props) {
@@ -18,31 +19,43 @@ class Pagination extends Component {
     this.state = {};
   }
 
+  // pushToUrlNewParam = page => {
+  //   history.push({
+  //     search: `?page=${page}`
+  //   });
+  // };
+
   handleClick = ({ page }, next) => {
-    let currentUrlParams = new URLSearchParams(window.location.search);
-    currentUrlParams.set("page", this.props.movies.page);
-    history.push(window.location.pathname + "?" + currentUrlParams.toString());
-    console.log(history.location.search.split("="[1]));
+    // let currentUrlParams = new URLSearchParams(window.location.search);
+    // currentUrlParams.set("page", this.props.movies.page);
+    // history.push(window.location.pathname + "?" + currentUrlParams.toString());
+    // console.log(history.location.search.split("="[1]));
+
+    // history.push({
+    //   search: `?page=${page + 1}`
+    // });
+    next ? pushToUrlNewParam(page + 1) : pushToUrlNewParam(page - 1);
 
     switch (true) {
       case history.location.pathname.includes("movie"):
         this.props.fetchRecommendedMoviesRequest(
           history.location.pathname.replace("/", ""),
           {
-            page: next ? page + 1 : page - 1
+            page: history.location.search.split("=")[1]
           }
         );
         break;
       case history.location.pathname.includes("person"):
         this.props.fetchMoviesReq("", {
-          page: next ? page + 1 : page - 1,
+          page: history.location.search.split("=")[1],
           with_genres: true,
           with_cast: history.location.pathname.replace("/person/", "")
         });
         break;
       default:
         this.props.fetchMoviesReq(this.props.tap.api, {
-          page: next ? page + 1 : page - 1,
+          // page: next ? page + 1 : page - 1,
+          page: history.location.search.split("=")[1],
           with_genres:
             this.props.tap.id === 1 ||
             this.props.tap.id === 2 ||

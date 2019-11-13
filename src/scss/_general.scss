@@ -3,7 +3,7 @@
 
 .grid-5 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 250px));
   grid-gap: 3.571rem;
   margin-bottom: 3.571rem;
 }

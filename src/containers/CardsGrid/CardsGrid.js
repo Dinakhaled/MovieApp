@@ -32,21 +32,25 @@ class CardsGrid extends Component {
     switch (true) {
       case this.props.type === "person":
         this.props.fetchMoviesReq("", {
-          page: 1,
+          page: history.location.search.split("=")[1],
           with_cast: history.location.pathname.replace("/person/", ""),
           with_genres: true
         });
         break;
       case this.props.type === "recommended":
         this.props.fetchRecommendedMoviesRequest(
-          history.location.pathname.replace("/", "")
+          history.location.pathname.replace("/", ""),
+          {
+            page: history.location.search.split("=")[1]
+          }
         );
         break;
       default:
         this.props.fetchMoviesReq(this.props.tap.api, {
-          page: this.props.fetchRecommendedMoviesRequest
-            ? 1
-            : this.props.page || 1,
+          // page: this.props.fetchRecommendedMoviesRequest
+          //   ? 1
+          //   : this.props.page || 1,
+          page: history.location.search.split("=")[1],
           with_genres: this.props.tap.api ? "" : this.props.tap.id
         });
     }

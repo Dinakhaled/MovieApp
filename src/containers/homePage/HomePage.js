@@ -10,11 +10,18 @@ import {
 import CardsGrid from "../CardsGrid/CardsGrid";
 import "./HomePage.scss";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import history from "../../routes/History";
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    history.push({
+      search: `?page=${history.location.search.split("=")[1] || 1}`
+    });
   }
 
   render() {
