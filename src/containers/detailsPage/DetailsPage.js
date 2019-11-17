@@ -119,12 +119,7 @@ class DetailsPage extends Component {
             <div className="d-flex justify-content-between align-items-start">
               <div className="d-flex flex-wrap">
                 {homepage && (
-                  <a
-                    href={homepage}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="mb-xs-20"
-                  >
+                  <a href={homepage} rel="noopener noreferrer" target="_blank">
                     <Button
                       className="mr-4"
                       icon={faLink}
@@ -139,7 +134,6 @@ class DetailsPage extends Component {
                   href={`https://www.imdb.com/title/${imdb_id}`}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="mb-xs-20"
                 >
                   <Button
                     className="mr-4"
