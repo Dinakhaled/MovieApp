@@ -1,9 +1,16 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+@import "~bootstrap/scss/mixins";
 @import "../../scss/variables";
 
 .image-wrapper {
   height: 100%;
   padding: 4rem;
   padding-top: 0;
+
+  @include media-breakpoint-down(sm) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .image {

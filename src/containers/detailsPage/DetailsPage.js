@@ -77,8 +77,8 @@ class DetailsPage extends Component {
     return (
       <Container fluid>
         <PageTitle title={title} />
-        <Row className="px-5">
-          <Col lg={5}>
+        <Row className="px-xs-0 px-lg-40">
+          <Col lg={5} sm={12}>
             <Image
               src={
                 poster_path
@@ -89,7 +89,7 @@ class DetailsPage extends Component {
           </Col>
           <Col lg={6}>
             <Title size="lg" main={title} sub={tagline} />
-            <div className="d-flex justify-content-between align-items-center mb-lg-60">
+            <div className="d-flex justify-content-between align-items-center flex-wrap mb-lg-60 mb-xs-40">
               <Rating Rate={(vote_average / 10) * 5} text={vote_average} />
               <h3 className="text-light title">
                 {spoken_languages &&
@@ -102,24 +102,29 @@ class DetailsPage extends Component {
               <ListInline
                 list={genres || []}
                 title="The Genres"
-                className="mb-lg-40"
+                className="mb-xs-40"
                 handleClick={e => this.handleClickInlineList(e)}
               />
             )}
             {overview && (
-              <Text title="The Synopsis" p={overview} className="mb-lg-40" />
+              <Text title="The Synopsis" p={overview} className="mb-xs-40" />
             )}
             {credits && credits.length > 0 && (
               <Slider
                 list={credits || []}
                 title="the cast"
-                className="mb-lg-40"
+                className="mb-xs-40"
               />
             )}
-            <div className="d-flex justify-content-between">
-              <div className="d-flex">
+            <div className="d-flex justify-content-between align-items-start">
+              <div className="d-flex flex-wrap">
                 {homepage && (
-                  <a href={homepage} rel="noopener noreferrer" target="_blank">
+                  <a
+                    href={homepage}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className="mb-xs-20"
+                  >
                     <Button
                       className="mr-4"
                       icon={faLink}
@@ -134,6 +139,7 @@ class DetailsPage extends Component {
                   href={`https://www.imdb.com/title/${imdb_id}`}
                   rel="noopener noreferrer"
                   target="_blank"
+                  className="mb-xs-20"
                 >
                   <Button
                     className="mr-4"
@@ -172,7 +178,7 @@ class DetailsPage extends Component {
             onClose={() => this.setState({ isVideoModalOpen: false })}
           />
         )}
-        <CardsGrid type="recommended" className="mt-lg-60" />
+        <CardsGrid type="recommended" className="mt-xs-60" />
       </Container>
     );
   }

@@ -20,14 +20,14 @@ class App extends Component {
     const { loading } = this.props;
     return (
       <Container fluid>
-        <Row>
+        <Row className="mx-auto">
           <Col lg={{ span: 2, offset: 10 }} className="pt-4">
             <Search />
           </Col>
         </Row>
-        <Row>
+        <Row className="mx-auto">
           <Col lg={2} className="pl-0">
-            <SideMenu />
+            <SideMenu className="d-none d-lg-block" />
           </Col>
           <Col lg={10} className="px-5 py-4">
             {loading ? <Loader /> : null}

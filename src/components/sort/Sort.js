@@ -32,7 +32,7 @@ class Sort extends Component {
       <Select
         value={this.state.selected}
         options={this.state.sortingList}
-        className="sort mb-lg-40"
+        className="sort mb-xs-40"
         theme={theme => ({
           ...theme,
           colors: {

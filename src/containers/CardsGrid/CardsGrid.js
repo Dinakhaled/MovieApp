@@ -8,7 +8,6 @@ import {
 import { connect } from "react-redux";
 import Title from "../../components/title/Title";
 import Card from "../../components/card/Card";
-import { Row } from "react-bootstrap";
 import Pagination from "../../components/pagination/Pagination";
 import history from "../../routes/History";
 import Sort from "../../components/sort/Sort";
@@ -66,9 +65,9 @@ class CardsGrid extends Component {
         )}
         {results && results.length > 0 ? (
           <React.Fragment>
-            <Row className="grid-5 mx-auto">
+            <div className="grid-5 mx-auto">
               <Card list={results} />
-            </Row>
+            </div>
             <Pagination type={type} />
           </React.Fragment>
         ) : (

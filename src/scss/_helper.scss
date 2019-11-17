@@ -27,6 +27,11 @@ $screens: (xs, sm, md, lg, xl);
           padding-top: #{$space}px !important;
           padding-bottom: #{$space}px !important;
         }
+
+        .px-#{$screen}-#{$space} {
+          padding-right: #{$space}px !important;
+          padding-left: #{$space}px !important;
+        }
       }
     }
   }

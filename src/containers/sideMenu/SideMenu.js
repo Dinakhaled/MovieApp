@@ -43,8 +43,9 @@ class SideMenu extends Component {
   };
 
   render() {
+    const { className } = this.props;
     return (
-      <div className="side-menu px-4">
+      <div className={`side-menu px-4 ${className}`}>
         <Logo />
         <List
           click={this.handleClick}
