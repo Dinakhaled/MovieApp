@@ -5,9 +5,9 @@ import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Rating.scss";
 
-const Rating = ({ Rate, text }) => {
+const Rating = ({ Rate, text, className }) => {
   return (
-    <div className={text ? "d-flex align-items-center" : ""}>
+    <div className={`${className} ${text ? "d-flex align-items-center" : ""}`}>
       <Stars
         className="rating"
         emptySymbol={

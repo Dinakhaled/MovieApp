@@ -38,8 +38,8 @@ class PersonDetails extends Component {
     return (
       <Container fluid>
         <PageTitle title={name} />
-        <Row className="px-5">
-          <Col lg={5}>
+        <Row className="px-xs-0 px-lg-40">
+          <Col lg={5} sm={12}>
             <Image
               src={
                 profile_path
@@ -95,7 +95,7 @@ class PersonDetails extends Component {
             </div>
           </Col>
         </Row>
-        <CardsGrid main="Also enters in" type="person" className="mt-lg-60" />
+        <CardsGrid main="Also enters in" type="person" className="mt-xs-60" />
       </Container>
     );
   }

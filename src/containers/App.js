@@ -29,7 +29,7 @@ class App extends Component {
           <Col lg={2} className="pl-0">
             <SideMenu className="d-none d-lg-block" />
           </Col>
-          <Col lg={10} className="px-5 py-4">
+          <Col lg={10} className="px-5 py-4 routes-container">
             {loading ? <Loader /> : null}
             <div className={`${loading ? "d-none" : ""}`}>
               <Router history={history}>{Routes}</Router>

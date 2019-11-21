@@ -15,7 +15,7 @@ const Image = ({ src }) => {
         <img
           src={src ? src : `/assets/images/image-fail.png`}
           alt={src}
-          className="image"
+          className={`image ${!loaded ? "d-none" : ""}`}
           onLoad={() => handleLoading()}
         />
       </div>

@@ -90,7 +90,11 @@ class DetailsPage extends Component {
           <Col lg={6}>
             <Title size="lg" main={title} sub={tagline} />
             <div className="d-flex justify-content-between align-items-center flex-wrap mb-lg-60 mb-xs-40">
-              <Rating Rate={(vote_average / 10) * 5} text={vote_average} />
+              <Rating
+                Rate={(vote_average / 10) * 5}
+                text={vote_average}
+                className="mr-xs-20 mb-xs-10"
+              />
               <h3 className="text-light title">
                 {spoken_languages &&
                   spoken_languages.length > 0 &&

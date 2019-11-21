@@ -6,7 +6,6 @@ import "./Slider.scss";
 class CircleSlider extends Component {
   state = {
     display: true
-    // width: 800
   };
 
   renderSlides = () => {
@@ -34,7 +33,15 @@ class CircleSlider extends Component {
       speed: 400,
       slidesToShow: 9,
       slidesToScroll: 1,
-      autoplay: true
+      autoplay: true,
+      responsive: [
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 4
+          }
+        }
+      ]
     };
     return (
       <div className={this.props.className}>
