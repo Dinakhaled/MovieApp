@@ -16,6 +16,7 @@
     "prettier": "1.18.2",
     "react": "16.9.0",
     "react-bootstrap": "1.0.0-beta.12",
+    "react-burger-menu": "^2.6.12",
     "react-dom": "16.9.0",
     "react-helmet": "^5.2.1",
     "react-modal-video": "^1.2.3",

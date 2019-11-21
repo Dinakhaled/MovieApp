@@ -27,7 +27,7 @@ class App extends Component {
         </Row>
         <Row className="mx-auto">
           <Col lg={2} className="pl-0">
-            <SideMenu className="d-none d-lg-block" />
+            <SideMenu className="d-lg-block" />
           </Col>
           <Col lg={10} className="px-5 py-4 routes-container">
             {loading ? <Loader /> : null}

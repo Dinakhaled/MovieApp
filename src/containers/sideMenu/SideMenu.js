@@ -12,6 +12,7 @@ import {
   searchKeyword
 } from "../../store/actions";
 import history from "../../routes/History";
+import { slide as Menu } from "react-burger-menu";
 import "./SideMenu.scss";
 
 const list = [
@@ -45,20 +46,36 @@ class SideMenu extends Component {
   render() {
     const { className } = this.props;
     return (
-      <div className={`side-menu px-4 ${className}`}>
-        <Logo />
-        <List
-          click={this.handleClick}
-          list={this.state.discover}
-          title={"Discover"}
-        />
-        <List
-          click={this.handleClick}
-          list={this.props.genres || []}
-          title={"genres"}
-        />
-        <Footer />
-      </div>
+      // <div className={`side-menu px-4 ${className}`}>
+      //   <Logo />
+      //   <List
+      //     click={this.handleClick}
+      //     list={this.state.discover}
+      //     title={"Discover"}
+      //   />
+      //   <List
+      //     click={this.handleClick}
+      //     list={this.props.genres || []}
+      //     title={"genres"}
+      //   />
+      //   <Footer />
+      // </div>
+      <Menu>
+        <div className={`side-menu px-4 ${className}`}>
+          <Logo />
+          <List
+            click={this.handleClick}
+            list={this.state.discover}
+            title={"Discover"}
+          />
+          <List
+            click={this.handleClick}
+            list={this.props.genres || []}
+            title={"genres"}
+          />
+          <Footer />
+        </div>
+      </Menu>
     );
   }
 }
