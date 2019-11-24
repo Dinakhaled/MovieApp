@@ -3,6 +3,7 @@
   border-right: 1px solid $border-light;
   position: sticky;
   top: 0;
+  z-index: 9999;
 }
 
 /* Individual item */
@@ -38,11 +39,11 @@
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 20px;
+  position: absolute;
+  width: 28px;
+  height: 20px;
+  left: 15px;
+  top: 21px;
 }
 
 /* Color/shape of burger icon bars */
@@ -87,4 +88,5 @@
 }
 .bm-menu-wrap {
   top: 0;
+  left: -5px;
 }

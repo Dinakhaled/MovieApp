@@ -25,7 +25,8 @@ class SideMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      discover: list
+      discover: list,
+      isMenuOpen: null
     };
   }
 
@@ -41,41 +42,44 @@ class SideMenu extends Component {
       sort_by: this.props.sortKey
     });
     history.push("/");
+    this.setState({ isMenuOpen: false });
   };
 
-  render() {
-    const { className } = this.props;
+  renderMenu() {
     return (
-      // <div className={`side-menu px-4 ${className}`}>
-      //   <Logo />
-      //   <List
-      //     click={this.handleClick}
-      //     list={this.state.discover}
-      //     title={"Discover"}
-      //   />
-      //   <List
-      //     click={this.handleClick}
-      //     list={this.props.genres || []}
-      //     title={"genres"}
-      //   />
-      //   <Footer />
-      // </div>
-      <Menu>
-        <div className={`side-menu px-4 ${className}`}>
-          <Logo />
-          <List
-            click={this.handleClick}
-            list={this.state.discover}
-            title={"Discover"}
-          />
-          <List
-            click={this.handleClick}
-            list={this.props.genres || []}
-            title={"genres"}
-          />
-          <Footer />
-        </div>
-      </Menu>
+      <React.Fragment>
+        <Logo />
+        <List
+          click={this.handleClick}
+          list={this.state.discover}
+          title={"Discover"}
+        />
+        <List
+          click={this.handleClick}
+          list={this.props.genres || []}
+          title={"genres"}
+        />
+        <Footer />
+      </React.Fragment>
+    );
+  }
+
+  checkDisplayMode(type) {
+    const { isMenuOpen } = this.state;
+    switch (type) {
+      case "mobile":
+        return <Menu isOpen={isMenuOpen}>{this.renderMenu()}</Menu>;
+      default:
+        return this.renderMenu();
+    }
+  }
+
+  render() {
+    const { className, type } = this.props;
+    return (
+      <div className={`side-menu px-4 ${className}`}>
+        {this.checkDisplayMode(type)}
+      </div>
     );
   }
 }
