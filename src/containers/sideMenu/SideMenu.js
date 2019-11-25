@@ -64,11 +64,19 @@ class SideMenu extends Component {
     );
   }
 
+  isMenuOpen = ({ isOpened }) => {
+    this.setState({ isMenuOpen: isOpened });
+  };
+
   checkDisplayMode(type) {
     const { isMenuOpen } = this.state;
     switch (type) {
       case "mobile":
-        return <Menu isOpen={isMenuOpen}>{this.renderMenu()}</Menu>;
+        return (
+          <Menu onStateChange={this.isMenuOpen} isOpen={isMenuOpen}>
+            {this.renderMenu()}
+          </Menu>
+        );
       default:
         return this.renderMenu();
     }
