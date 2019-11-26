@@ -62,7 +62,7 @@ class PersonDetails extends Component {
                 {homepage && (
                   <a href={homepage} rel="noopener noreferrer" target="_blank">
                     <Button
-                      className="mr-4"
+                      className="mr-4 mb-3"
                       icon={faLink}
                       iconMargin="l"
                       order="1"
@@ -77,7 +77,7 @@ class PersonDetails extends Component {
                   target="_blank"
                 >
                   <Button
-                    className="mr-4"
+                    className="mr-4 mb-3"
                     icon={faImdb}
                     iconMargin="l"
                     order="1"
@@ -87,6 +87,7 @@ class PersonDetails extends Component {
                 </a>
               </div>
               <Button
+                className="mb-3"
                 content="Back"
                 iconMargin="r"
                 icon={faArrowLeft}

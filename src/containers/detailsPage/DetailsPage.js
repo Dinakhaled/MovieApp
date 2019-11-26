@@ -125,7 +125,7 @@ class DetailsPage extends Component {
                 {homepage && (
                   <a href={homepage} rel="noopener noreferrer" target="_blank">
                     <Button
-                      className="mr-4"
+                      className="mr-4 mb-3"
                       icon={faLink}
                       iconMargin="l"
                       order="1"
@@ -140,7 +140,7 @@ class DetailsPage extends Component {
                   target="_blank"
                 >
                   <Button
-                    className="mr-4"
+                    className="mr-4 mb-3"
                     icon={faImdb}
                     iconMargin="l"
                     order="1"
@@ -150,6 +150,7 @@ class DetailsPage extends Component {
                 </a>
                 {videos && videos.results.length > 0 && (
                   <Button
+                    className="mb-3"
                     icon={faPlay}
                     iconMargin="l"
                     order="1"

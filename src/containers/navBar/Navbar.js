@@ -19,11 +19,13 @@ const Navbar = ({ isMobile, loading }) => {
           className={`d-lg-block ${isMobile ? "mb-xs-60" : ""}`}
           type={isMobile ? "mobile" : ""}
         />
-        <Search />
+        {isMobile && <Search />}
       </Col>
       <Col
         lg={isMobile ? 12 : 10}
-        className={`px-5 py-4 routes-container ${isMobile && "mt-xs-80"}`}
+        className={`py-4 routes-container ${
+          isMobile ? "mt-xs-80 px-4" : "px-5"
+        }`}
       >
         {loading ? <Loader /> : null}
         <div className={`${loading ? "d-none" : ""}`}>

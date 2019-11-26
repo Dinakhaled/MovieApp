@@ -22,4 +22,7 @@
   background-size: cover;
   background-position: center;
   box-shadow: $box-shadow-sm;
+  @include media-breakpoint-down(md) {
+    min-height: 350px;
+  }
 }
