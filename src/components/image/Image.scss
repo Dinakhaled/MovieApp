@@ -3,26 +3,30 @@
 @import "../../scss/variables";
 
 .image-wrapper {
-  height: 100%;
-  padding: 4rem;
   padding-top: 0;
+  // text-align: center;
 
   @include media-breakpoint-down(sm) {
     padding-left: 0;
     padding-right: 0;
   }
+
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
 }
 
 .image {
-  width: 100%;
-  min-height: 670px;
-  max-height: 100%;
+  width: 90%;
+  // min-height: 670px;
+  // max-height: 100%;
   border-radius: 0.8rem;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   box-shadow: $box-shadow-sm;
   @include media-breakpoint-down(md) {
-    min-height: 350px;
+    width: 50%;
+    margin-bottom: 30px;
   }
 }

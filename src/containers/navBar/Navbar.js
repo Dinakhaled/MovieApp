@@ -12,7 +12,8 @@ const Navbar = ({ isMobile, loading }) => {
   return (
     <React.Fragment>
       <Col
-        lg={isMobile ? 12 : 2}
+        xl={2}
+        lg={12}
         className={`pl-0 ${isMobile && "custom-navbar custom-navbar--mobile"}`}
       >
         <SideMenu
@@ -22,7 +23,8 @@ const Navbar = ({ isMobile, loading }) => {
         {isMobile && <Search />}
       </Col>
       <Col
-        lg={isMobile ? 12 : 10}
+        lg={12}
+        xl={10}
         className={`py-4 routes-container ${
           isMobile ? "mt-xs-80 px-4" : "px-5"
         }`}

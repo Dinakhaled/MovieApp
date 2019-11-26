@@ -40,6 +40,18 @@ class CircleSlider extends Component {
           settings: {
             slidesToShow: 5
           }
+        },
+        {
+          breakpoint: 1440,
+          settings: {
+            slidesToShow: 6
+          }
+        },
+        {
+          breakpoint: 796,
+          settings: {
+            slidesToShow: 8
+          }
         }
       ]
     };

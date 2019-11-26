@@ -77,7 +77,7 @@ class DetailsPage extends Component {
     return (
       <Container fluid>
         <PageTitle title={title} />
-        <Row className="px-xs-0 px-lg-40">
+        <Row className="px-xs-0 px-lg-40 align-items-center">
           <Col lg={5} sm={12}>
             <Image
               src={

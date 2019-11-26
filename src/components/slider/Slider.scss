@@ -4,6 +4,7 @@
 .slider {
   @include e(slide) {
     height: 5.5rem;
+    width: 5.5rem;
     display: flex !important;
     align-items: center;
     justify-content: center;
