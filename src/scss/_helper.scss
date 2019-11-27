@@ -5,32 +5,33 @@
 $spaces: (0, 10, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280);
 $sides: (top, bottom, left, right);
 $screens: (xs, sm, md, lg, xl);
-
+// $screens: (xl, lg, md, sm, xs);
+;
 @each $screen in $screens {
   @include media-breakpoint-up($screen) {
     @each $space in $spaces {
       @each $side in $sides {
         .m#{str-slice($side, 0, 1)}-#{$screen}-#{$space} {
-          margin-#{$side}: #{$space}px !important;
+          margin-#{$side}: #{$space}px;
         }
 
         .my-#{$screen}-#{$space} {
-          margin-top: #{$space}px !important;
-          margin-bottom: #{$space}px !important;
+          margin-top: #{$space}px;
+          margin-bottom: #{$space}px;
         }
 
         .p#{str-slice($side, 0, 1)}-#{$screen}-#{$space} {
-          padding-#{$side}: #{$space}px !important;
+          padding-#{$side}: #{$space}px;
         }
 
         .py-#{$screen}-#{$space} {
-          padding-top: #{$space}px !important;
-          padding-bottom: #{$space}px !important;
+          padding-top: #{$space}px;
+          padding-bottom: #{$space}px;
         }
 
         .px-#{$screen}-#{$space} {
-          padding-right: #{$space}px !important;
-          padding-left: #{$space}px !important;
+          padding-right: #{$space}px;
+          padding-left: #{$space}px;
         }
       }
     }

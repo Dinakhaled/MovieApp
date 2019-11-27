@@ -29,7 +29,7 @@ class App extends Component {
       <Container fluid className={isMobile && "p-0"}>
         {!isMobile && (
           <Row className="mx-auto">
-            <Col lg={{ span: 2, offset: 10 }} className="pt-4">
+            <Col lg={{ span: 3, offset: 9 }} className="pt-4">
               <Search className="mb-4" />
             </Col>
           </Row>

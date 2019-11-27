@@ -77,7 +77,7 @@ class DetailsPage extends Component {
     return (
       <Container fluid>
         <PageTitle title={title} />
-        <Row className="px-xs-0 px-lg-40 align-items-center">
+        <Row className="px-xs-0 align-items-center">
           <Col lg={5} sm={12}>
             <Image
               src={
@@ -87,9 +87,9 @@ class DetailsPage extends Component {
               }
             />
           </Col>
-          <Col lg={6}>
+          <Col lg={6} sm={12}>
             <Title size="lg" main={title} sub={tagline} />
-            <div className="d-flex justify-content-between align-items-center flex-wrap mb-lg-60 mb-xs-40">
+            <div className="d-flex justify-content-between align-items-center flex-wrap mb-lg-20 mb-xl-60 mb-xs-40">
               <Rating
                 Rate={(vote_average / 10) * 5}
                 text={vote_average}
