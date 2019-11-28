@@ -14,7 +14,7 @@ const Empty = props => {
       <h2 className="h2-2">{title}</h2>
       <img src={notFoundImg} className="w-50 mb-4" alt="not-found" />
       {location.pathname === "/" ? null : (
-        <Link to="/" className="d-flex justify-content-center">
+        <Link to="/MovieApp" className="d-flex justify-content-center">
           <Button
             icon={faHome}
             iconMargin="l"

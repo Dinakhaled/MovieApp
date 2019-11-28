@@ -19,7 +19,7 @@ class CircleSlider extends Component {
         })`
       };
       return (
-        <Link to={`/person/${id}`} key={id}>
+        <Link to={`/MovieApp/person/${id}`} key={id}>
           <div className="slider__slide">
             <div className="slider__img" style={background}></div>
           </div>

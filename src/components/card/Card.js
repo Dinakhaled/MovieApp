@@ -26,7 +26,7 @@ class Card extends Component {
           this.props.list.map(({ title, id, poster_path, vote_average }) => {
             return (
               <Link
-                to={`/movie/${id}`}
+                to={`/MovieApp/movie/${id}`}
                 key={id}
                 className="card-space"
                 onClick={this.scrollToTop()}
