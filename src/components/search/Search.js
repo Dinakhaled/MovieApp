@@ -25,7 +25,10 @@ class Search extends Component {
     this.props.searchKeyword({ search: this.state.search });
     console.log(history.location.pathname);
 
-    if (history.location.pathname === "/MovieApp/") {
+    if (
+      history.location.pathname === "/MovieApp/" ||
+      history.location.pathname === "/MovieApp"
+    ) {
       this.props.fetchMoviesReq(this.props.api, {
         query: this.state.search
       });
