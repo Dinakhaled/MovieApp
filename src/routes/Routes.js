@@ -16,9 +16,9 @@ const Routes = (
   <Suspense fallback={<Loader />}>
     <Router history={history}>
       <Switch>
-        <HomePage path="/" exact />
-        <DetailsPage path="/movie/:id" />
-        <PersonDetails path="/person/:id" />
+        <HomePage path="/MovieApp" exact />
+        <DetailsPage path="/MovieApp/movie/:id" />
+        <PersonDetails path="/MovieApp/person/:id" />
         <NotFoundPage title="This page doesn't exist..." path="**" />
       </Switch>
     </Router>
