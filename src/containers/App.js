@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Search from "../components/search/Search";
 import { connect } from "react-redux";
 import { loader } from "../store/actions";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Navbar from "../containers/navBar/Navbar";
 // ========== General styles ==========
 import "./App.scss";
@@ -14,6 +14,7 @@ class App extends Component {
       isMobile: null
     };
     window.addEventListener("resize", this.changeMobile);
+    window.addEventListener("load", this.changeMobile);
   }
 
   changeMobile = () => {
@@ -28,10 +29,8 @@ class App extends Component {
     return (
       <Container fluid className={isMobile && "p-0"}>
         {!isMobile && (
-          <Row className="mx-auto">
-            <Col lg={{ span: 3, offset: 9 }} className="pt-4">
-              <Search className="mb-4" />
-            </Col>
+          <Row className="mx-auto pt-4 justify-content-end">
+            <Search className="mb-4" />
           </Row>
         )}
         <Row className="mx-auto">

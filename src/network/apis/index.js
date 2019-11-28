@@ -2,7 +2,7 @@ import axios from "axios";
 import { successHandler, errorHandler, requestHandler } from "../interceptors";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://api.themoviedb.org/3",
+  baseURL: "https://api.themoviedb.org/3",
   params: {
     api_key: "2fbdb6b89a7ce56a574f8d6328b92a72"
   }
