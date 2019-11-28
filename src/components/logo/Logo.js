@@ -3,7 +3,7 @@ import "./Logo.scss";
 import history from "../../routes/History";
 
 const handleClick = () => {
-  history.push("/");
+  history.push("/MovieApp");
 };
 
 const Logo = () => {

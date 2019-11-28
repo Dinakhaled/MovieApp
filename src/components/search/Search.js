@@ -30,7 +30,7 @@ class Search extends Component {
     // this.props.currentTap({ tap: { id: "", icon: "", api: "" } });
     this.setState({ search: "" });
     this.props.sortBy({ sortBy: "" });
-    history.push("/");
+    history.push("/MovieApp");
   };
 
   handleChange = e => {

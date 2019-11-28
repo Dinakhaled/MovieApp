@@ -56,7 +56,7 @@ class DetailsPage extends Component {
     this.props.currentTap({
       tap: { id: parseInt(values[0], 10), name: values[1] }
     });
-    history.push("/");
+    history.push("/MovieApp");
   };
 
   render() {

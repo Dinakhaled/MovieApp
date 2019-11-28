@@ -41,7 +41,7 @@ class SideMenu extends Component {
       with_genres: api ? "" : id,
       sort_by: this.props.sortKey
     });
-    history.push("/");
+    history.push("/MovieApp");
     this.setState({ isMenuOpen: false });
   };
 
