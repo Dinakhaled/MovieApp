@@ -11,6 +11,7 @@ import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import history from "../../routes/History";
 import CardsGrid from "../CardsGrid/CardsGrid";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import imageFail from "../../assets/images/image-fail.png";
 
 class PersonDetails extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class PersonDetails extends Component {
               src={
                 profile_path
                   ? `https://image.tmdb.org/t/p/w780${profile_path}`
-                  : `../../assets/images/image-fail.png`
+                  : `${imageFail}`
               }
             />
           </Col>

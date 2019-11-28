@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import "./Slider.scss";
+import imageFailProfile from "../../assets/images/profile-fail.png";
 
 class CircleSlider extends Component {
   state = {
@@ -14,7 +15,7 @@ class CircleSlider extends Component {
         backgroundImage: `url(${
           profile_path
             ? `https://image.tmdb.org/t/p/w342${profile_path}`
-            : "../../assets/images/profile-fail.png"
+            : `${imageFailProfile}`
         })`
       };
       return (

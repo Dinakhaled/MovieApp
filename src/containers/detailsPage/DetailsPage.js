@@ -19,6 +19,7 @@ import history from "../../routes/History";
 import ModalVideo from "react-modal-video";
 import CardsGrid from "../CardsGrid/CardsGrid";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import imageFail from "../../assets/images/image-fail.png";
 
 class DetailsPage extends Component {
   constructor(props) {
@@ -83,7 +84,7 @@ class DetailsPage extends Component {
               src={
                 poster_path
                   ? `https://image.tmdb.org/t/p/w780${poster_path}`
-                  : `../../assets/images/image-fail.png`
+                  : `${imageFail}`
               }
             />
           </Col>

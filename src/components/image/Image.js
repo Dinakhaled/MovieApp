@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Spinner from "../spinner/Spinner";
 import "./Image.scss";
+import imageFail from "../../assets/images/image-fail.png";
 
 const Image = ({ src }) => {
   const [loaded, setLoading] = useState(false);
@@ -13,7 +14,7 @@ const Image = ({ src }) => {
       {!loaded ? <Spinner /> : null}
       <div className={`image-wrapper ${!loaded ? "d-none" : ""}`}>
         <img
-          src={src ? src : `../../assets/images/image-fail.png`}
+          src={src ? src : `${imageFail}`}
           alt={src}
           className={`image ${!loaded ? "d-none" : ""}`}
           onLoad={() => handleLoading()}
