@@ -23,7 +23,9 @@ class Search extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.searchKeyword({ search: this.state.search });
-    if (history.location.pathname === "/MovieApp") {
+    console.log(history.location.pathname);
+
+    if (history.location.pathname === "/MovieApp/") {
       this.props.fetchMoviesReq(this.props.api, {
         query: this.state.search
       });
