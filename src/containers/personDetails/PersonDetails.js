@@ -39,7 +39,7 @@ class PersonDetails extends Component {
     return (
       <Container fluid>
         <PageTitle title={name} />
-        <Row className="px-xs-0 align-items-center">
+        <Row className="px-xs-0">
           <Col lg={5} sm={12}>
             <Image
               src={

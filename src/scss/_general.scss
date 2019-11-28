@@ -9,6 +9,12 @@
   justify-content: center;
 }
 
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, auto));
+  grid-gap: 3.571rem;
+}
+
 a,
 a:hover {
   text-decoration: none;

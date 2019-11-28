@@ -4,22 +4,26 @@
 
 .image-wrapper {
   padding-top: 0;
-  // text-align: center;
+  // max-width: 70%;
+  margin: 0 auto;
+  text-align: center;
 
   @include media-breakpoint-down(sm) {
     padding-left: 0;
     padding-right: 0;
   }
 
-  @include media-breakpoint-down(md) {
-    text-align: center;
+  @include media-breakpoint-up(xl) {
+    max-width: 80%;
+  }
+
+  @include media-breakpoint-up(md) {
+    max-width: 70%;
   }
 }
 
 .image {
-  width: 90%;
-  // min-height: 670px;
-  // max-height: 100%;
+  max-width: 100%;
   border-radius: 0.8rem;
   background-repeat: no-repeat;
   background-size: cover;
