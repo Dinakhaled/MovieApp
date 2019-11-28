@@ -9,6 +9,7 @@
   @include e(img) {
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    min-height: 374px;
   }
 
   &:hover {

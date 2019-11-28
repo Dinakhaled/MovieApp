@@ -46,20 +46,18 @@ class CardsGrid extends Component {
         break;
       default:
         this.props.fetchMoviesReq(this.props.tap.api, {
-          // page: this.props.fetchRecommendedMoviesRequest
-          //   ? 1
-          //   : this.props.page || 1,
           page: history.location.search.split("=")[1],
-          with_genres: this.props.tap.api ? "" : this.props.tap.id
+          with_genres: this.props.tap.api ? "" : this.props.tap.id,
+          query: this.props.search && this.props.search
         });
     }
   }
 
   render() {
-    const { results, className, main, type } = this.props;
+    const { results, className, main, type, sub } = this.props;
     return (
       <div className={className}>
-        <Title main={main || "Recommended"} sub={"movies"} />
+        <Title main={main || "Recommended"} sub={sub || "movies"} />
         {this.props.tap.api || this.props.search || type ? null : (
           <Sort click={this.handleClick} />
         )}

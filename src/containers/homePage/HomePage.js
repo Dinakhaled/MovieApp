@@ -29,12 +29,12 @@ class HomePage extends Component {
       <React.Fragment>
         <PageTitle
           title={`${
-            this.props.tap.name ? this.props.tap.name : this.props.search
+            this.props.search ? this.props.search : this.props.tap.name
           } Movies`}
         />
         <CardsGrid
-          main={this.props.tap.name ? this.props.tap.name : this.props.search}
-          sub={this.props.tap.name ? "movies" : "search results"}
+          main={this.props.search ? this.props.search : this.props.tap.name}
+          sub={this.props.search ? "search results" : "movies"}
           results={this.props.movies.results}
         />
       </React.Fragment>

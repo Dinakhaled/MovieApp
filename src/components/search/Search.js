@@ -23,14 +23,14 @@ class Search extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.searchKeyword({ search: this.state.search });
-    this.props.fetchMoviesReq(this.props.api, {
-      page: 1,
-      query: this.state.search
-    });
-    // this.props.currentTap({ tap: { id: "", icon: "", api: "" } });
+    if (history.location.pathname === "/MovieApp") {
+      this.props.fetchMoviesReq(this.props.api, {
+        query: this.state.search
+      });
+    }
     this.setState({ search: "" });
     this.props.sortBy({ sortBy: "" });
-    history.push("/MovieApp");
+    history.push(`/MovieApp`);
   };
 
   handleChange = e => {

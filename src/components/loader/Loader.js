@@ -4,7 +4,7 @@ import "./Loader.scss";
 
 const Loader = () => {
   return (
-    <div className="h-100 d-flex mt-md-180 justify-content-center">
+    <div className="h-100 d-flex align-items-center justify-content-center">
       <Spinner animation="grow" variant="primary" />
     </div>
   );
