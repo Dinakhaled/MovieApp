@@ -30,7 +30,7 @@ class Search extends Component {
     }
     this.setState({ search: "" });
     this.props.sortBy({ sortBy: "" });
-    history.push(`/MovieApp`);
+    history.push(`/MovieApp/`);
   };
 
   handleChange = e => {
