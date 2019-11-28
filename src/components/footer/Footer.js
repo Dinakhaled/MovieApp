@@ -1,6 +1,6 @@
 import React from "react";
 import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
+// import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Footer.scss";
 
@@ -35,7 +35,7 @@ const Footer = () => {
             />
           </a>
         </li>
-        <li>
+        {/* <li>
           <a
             href="https://www.linkedin.com/in/dina-hassan-a09655138/"
             target="_blank"
@@ -47,7 +47,7 @@ const Footer = () => {
               size="2x"
             />
           </a>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
