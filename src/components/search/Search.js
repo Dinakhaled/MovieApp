@@ -38,8 +38,12 @@ class Search extends Component {
   };
 
   render() {
+    const { className } = this.props;
     return (
-      <Form className="form-search mb-4" onSubmit={e => this.handleSubmit(e)}>
+      <Form
+        className={`form-search ${className}`}
+        onSubmit={e => this.handleSubmit(e)}
+      >
         <InputGroup>
           <InputGroup.Prepend>
             <InputGroup.Text className="form-search__icon" id="basic-addon1">

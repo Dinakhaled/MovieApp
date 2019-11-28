@@ -38,8 +38,8 @@ class PersonDetails extends Component {
     return (
       <Container fluid>
         <PageTitle title={name} />
-        <Row className="px-5">
-          <Col lg={5}>
+        <Row className="px-xs-0 align-items-center">
+          <Col lg={5} sm={12}>
             <Image
               src={
                 profile_path
@@ -62,7 +62,7 @@ class PersonDetails extends Component {
                 {homepage && (
                   <a href={homepage} rel="noopener noreferrer" target="_blank">
                     <Button
-                      className="mr-4"
+                      className="mr-4 mb-3"
                       icon={faLink}
                       iconMargin="l"
                       order="1"
@@ -77,7 +77,7 @@ class PersonDetails extends Component {
                   target="_blank"
                 >
                   <Button
-                    className="mr-4"
+                    className="mr-4 mb-3"
                     icon={faImdb}
                     iconMargin="l"
                     order="1"
@@ -87,6 +87,7 @@ class PersonDetails extends Component {
                 </a>
               </div>
               <Button
+                className="mb-3"
                 content="Back"
                 iconMargin="r"
                 icon={faArrowLeft}
@@ -95,7 +96,7 @@ class PersonDetails extends Component {
             </div>
           </Col>
         </Row>
-        <CardsGrid main="Also enters in" type="person" className="mt-lg-60" />
+        <CardsGrid main="Also enters in" type="person" className="mt-xs-60" />
       </Container>
     );
   }

@@ -77,7 +77,7 @@ class DetailsPage extends Component {
     return (
       <Container fluid>
         <PageTitle title={title} />
-        <Row className="px-xs-0 px-lg-40">
+        <Row className="px-xs-0 align-items-center">
           <Col lg={5} sm={12}>
             <Image
               src={
@@ -87,10 +87,14 @@ class DetailsPage extends Component {
               }
             />
           </Col>
-          <Col lg={6}>
+          <Col lg={6} sm={12}>
             <Title size="lg" main={title} sub={tagline} />
-            <div className="d-flex justify-content-between align-items-center flex-wrap mb-lg-60 mb-xs-40">
-              <Rating Rate={(vote_average / 10) * 5} text={vote_average} />
+            <div className="d-flex justify-content-between align-items-center flex-wrap mb-lg-20 mb-xl-60 mb-xs-40">
+              <Rating
+                Rate={(vote_average / 10) * 5}
+                text={vote_average}
+                className="mr-xs-20 mb-xs-10"
+              />
               <h3 className="text-light title">
                 {spoken_languages &&
                   spoken_languages.length > 0 &&
@@ -121,7 +125,7 @@ class DetailsPage extends Component {
                 {homepage && (
                   <a href={homepage} rel="noopener noreferrer" target="_blank">
                     <Button
-                      className="mr-4"
+                      className="mr-4 mb-3"
                       icon={faLink}
                       iconMargin="l"
                       order="1"
@@ -136,7 +140,7 @@ class DetailsPage extends Component {
                   target="_blank"
                 >
                   <Button
-                    className="mr-4"
+                    className="mr-4 mb-3"
                     icon={faImdb}
                     iconMargin="l"
                     order="1"
@@ -146,6 +150,7 @@ class DetailsPage extends Component {
                 </a>
                 {videos && videos.results.length > 0 && (
                   <Button
+                    className="mb-3"
                     icon={faPlay}
                     iconMargin="l"
                     order="1"

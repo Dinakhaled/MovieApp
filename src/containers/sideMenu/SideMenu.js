@@ -12,6 +12,7 @@ import {
   searchKeyword
 } from "../../store/actions";
 import history from "../../routes/History";
+import { slide as Menu } from "react-burger-menu";
 import "./SideMenu.scss";
 
 const list = [
@@ -24,7 +25,8 @@ class SideMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      discover: list
+      discover: list,
+      isMenuOpen: null
     };
   }
 
@@ -40,12 +42,12 @@ class SideMenu extends Component {
       sort_by: this.props.sortKey
     });
     history.push("/");
+    this.setState({ isMenuOpen: false });
   };
 
-  render() {
-    const { className } = this.props;
+  renderMenu() {
     return (
-      <div className={`side-menu px-4 ${className}`}>
+      <React.Fragment>
         <Logo />
         <List
           click={this.handleClick}
@@ -58,6 +60,33 @@ class SideMenu extends Component {
           title={"genres"}
         />
         <Footer />
+      </React.Fragment>
+    );
+  }
+
+  isMenuOpen = ({ isOpened }) => {
+    this.setState({ isMenuOpen: isOpened });
+  };
+
+  checkDisplayMode(type) {
+    const { isMenuOpen } = this.state;
+    switch (type) {
+      case "mobile":
+        return (
+          <Menu onStateChange={this.isMenuOpen} isOpen={isMenuOpen}>
+            {this.renderMenu()}
+          </Menu>
+        );
+      default:
+        return this.renderMenu();
+    }
+  }
+
+  render() {
+    const { className, type } = this.props;
+    return (
+      <div className={`side-menu px-4 ${className}`}>
+        {this.checkDisplayMode(type)}
       </div>
     );
   }
