@@ -13,7 +13,7 @@ const Image = ({ src }) => {
       {!loaded ? <Spinner /> : null}
       <div className={`image-wrapper ${!loaded ? "d-none" : ""}`}>
         <img
-          src={src ? src : `/assets/images/image-fail.png`}
+          src={src ? src : `../../assets/images/image-fail.png`}
           alt={src}
           className={`image ${!loaded ? "d-none" : ""}`}
           onLoad={() => handleLoading()}

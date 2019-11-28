@@ -44,7 +44,7 @@ class PersonDetails extends Component {
               src={
                 profile_path
                   ? `https://image.tmdb.org/t/p/w780${profile_path}`
-                  : `/assets/images/image-fail.png`
+                  : `../../assets/images/image-fail.png`
               }
             />
           </Col>

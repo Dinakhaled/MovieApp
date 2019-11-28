@@ -83,7 +83,7 @@ class DetailsPage extends Component {
               src={
                 poster_path
                   ? `https://image.tmdb.org/t/p/w780${poster_path}`
-                  : `/assets/images/image-fail.png`
+                  : `../../assets/images/image-fail.png`
               }
             />
           </Col>
