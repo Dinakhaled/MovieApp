@@ -39,7 +39,7 @@ class Pagination extends Component {
     switch (true) {
       case history.location.pathname.includes("movie"):
         this.props.fetchRecommendedMoviesRequest(
-          history.location.pathname.replace("/", ""),
+          history.location.pathname.replace("/MovieApp/", ""),
           {
             page: history.location.search.split("=")[1]
           }
@@ -49,7 +49,7 @@ class Pagination extends Component {
         this.props.fetchMoviesReq("", {
           page: history.location.search.split("=")[1],
           with_genres: true,
-          with_cast: history.location.pathname.replace("/person/", "")
+          with_cast: history.location.pathname.replace("/MovieApp/person/", "")
         });
         break;
       default:

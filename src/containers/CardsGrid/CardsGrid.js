@@ -32,13 +32,13 @@ class CardsGrid extends Component {
       case this.props.type === "person":
         this.props.fetchMoviesReq("", {
           page: history.location.search.split("=")[1],
-          with_cast: history.location.pathname.replace("/person/", ""),
+          with_cast: history.location.pathname.replace("/MovieApp/person/", ""),
           with_genres: true
         });
         break;
       case this.props.type === "recommended":
         this.props.fetchRecommendedMoviesRequest(
-          history.location.pathname.replace("/", ""),
+          history.location.pathname.replace("/MovieApp/", ""),
           {
             page: history.location.search.split("=")[1]
           }
