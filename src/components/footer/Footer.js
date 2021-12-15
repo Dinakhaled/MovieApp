@@ -11,7 +11,7 @@ const Footer = () => {
       <ul className="footer__list">
         <li>
           <a
-            href="https://www.linkedin.com/in/dina-hassan-a09655138/"
+            href="https://www.linkedin.com/in/dina-elghndour/"
             target="_blank"
             rel="noopener noreferrer"
           >
